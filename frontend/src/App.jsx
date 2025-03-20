@@ -39,11 +39,11 @@ const App = () => {
     //sorting specific pages
     
     {
-      path: "/sorting /heap",
+      path: "/sorting/heap",
       element: <Heap />
     },
     {
-      path: "/sorting /merge",
+      path: "/sorting/merge",
       element: <Merge />
     },
     {

@@ -17,11 +17,11 @@ const Navbar = () => {
   const sortingOptions = [
     {
       title:'Heap Sort',
-      path:'/sorting /heap'
+      path:'/sorting/heap'
     },
     {
       title:'Merge Sort',
-      path:'/sorting /merge'
+      path:'/sorting/merge'
     },
     
     {
