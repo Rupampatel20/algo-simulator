@@ -127,20 +127,7 @@ export const Quick = () => {
 
     </div>
 
-{/* gfg button link code */}
 
-    <div className="text-left my-6 p-4 border-l-4 border-blue-500 bg-gray-50 rounded-lg shadow-md">
-  <p className="text-lg text-gray-800 leading-relaxed">
-    Try it on 
-    <a href="https://www.geeksforgeeks.org/quick-sort/" target="_blank" rel="noopener noreferrer" 
-       className="text-blue-600 font-semibold hover:underline">
-       GfG Practice
-    </a>
-    <span className="inline-block ml-2">
-      🔗
-    </span>
-  </p>
-</div>
 
 {/* Complexity Analysis of QuickSort section*/}
 
@@ -251,25 +238,20 @@ export const Quick = () => {
     </div>
 
 
+{/* gfg button link code */}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<div className="text-left my-6 p-4 border-l-4 border-blue-500 bg-gray-50 rounded-lg shadow-md">
+  <p className="text-lg text-gray-800 leading-relaxed">
+    Try it on 
+    <a href="https://www.geeksforgeeks.org/quick-sort/" target="_blank" rel="noopener noreferrer" 
+       className="text-blue-600 font-semibold hover:underline">
+       GfG Practice
+    </a>
+    <span className="inline-block ml-2">
+      🔗
+    </span>
+  </p>
+</div>
 
     </div>
   )

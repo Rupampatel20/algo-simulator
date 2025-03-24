@@ -225,11 +225,7 @@ export const Heap = () => {
 </div>
 
 
-<div className="text-left my-6 pl-6">
-  <h3 className="text-2xl font-semibold text-black">
-    Implementation of Heap Sort
-  </h3>
-</div>
+{/* gfg link  */}
 
 <div className="text-left my-6 p-4 border-l-4 border-blue-500 bg-gray-50 rounded-lg shadow-md">
   <p className="text-lg text-gray-800 leading-relaxed">
@@ -244,93 +240,7 @@ export const Heap = () => {
   </p>
 </div>
 
-<div className="text-left my-6 p-4 bg-gray-900 text-white rounded-lg shadow-md overflow-x-auto">
-  <pre className="whitespace-pre-wrap text-sm leading-relaxed">
-    <code>
-{`// C++ program for implementation of Heap Sort using vector
-#include <bits/stdc++.h>
-using namespace std;
 
-// To heapify a subtree rooted with node i
-// which is an index in arr[].
-void heapify(vector<int>& arr, int n, int i){
-
-    // Initialize largest as root
-    int largest = i;
-
-    // left index = 2*i + 1
-    int l = 2 * i + 1;
-
-    // right index = 2*i + 2
-    int r = 2 * i + 2;
-
-    // If left child is larger than root
-    if (l < n && arr[l] > arr[largest])
-        largest = l;
-
-    // If right child is larger than largest so far
-    if (r < n && arr[r] > arr[largest])
-        largest = r;
-
-    // If largest is not root
-    if (largest != i) {
-        swap(arr[i], arr[largest]);
-
-        // Recursively heapify the affected sub-tree
-        heapify(arr, n, largest);
-    }
-}
-
-// Main function to do heap sort
-void heapSort(vector<int>& arr){
-    int n = arr.size();
-
-    // Build heap (rearrange vector)
-    for (int i = n / 2 - 1; i >= 0; i--)
-        heapify(arr, n, i);
-
-    // One by one extract an element from heap
-    for (int i = n - 1; i > 0; i--) {
-
-        // Move current root to end
-        swap(arr[0], arr[i]);
-
-        // Call max heapify on the reduced heap
-        heapify(arr, i, 0);
-    }
-}
-
-// A utility function to print vector of size n
-void printArray(vector<int>& arr){
-    for (int i = 0; i < arr.size(); ++i)
-        cout << arr[i] << " ";
-    cout << "\\n";
-}
-
-// Driver's code
-int main(){
-    vector<int> arr = { 9, 4, 3, 8, 10, 2, 5 };
-
-    // Function call
-    heapSort(arr);
-
-    cout << "Sorted array is \\n";
-    printArray(arr);
-}
-`}
-    </code>
-  </pre>
-</div>
-
-<div className="text-left my-6 p-4 border-l-4 border-green-500 bg-gray-50 rounded-lg shadow-md">
-  <h4 className="text-xl font-semibold text-black">Output</h4>
-  <p className="text-lg text-gray-800 leading-relaxed mt-2">
-    <strong>Sorted array is</strong>
-  </p>
-  <div className="mt-2 p-3 bg-gray-200 text-black rounded-md font-mono text-sm">
-    2 3 4 5 8 9 10
-  </div>
-</div>
 
     </div>
   )

@@ -1,10 +1,20 @@
-import React from 'react'
+import React, {useState} from "react";
 import LINEAR_SEARCH_IMG from "../../assets/Screenshot-2023-03-07-101704.png";
 
-
-
-
 export const Linear = () => {
+  const [array] = useState([10, 50, 30, 70, 80, 20, 90, 40]); // Updated Array
+  const [target, setTarget] = useState(""); // User input for target value
+  const [result, setResult] = useState(null); // Stores search result
+
+  // Function to perform Linear Search
+  const handleSearch = () => {
+    let index = array.indexOf(parseInt(target));
+    setResult(
+      index !== -1
+        ?` ✅ Element found at index ${index}`
+        : "❌ Element not found"
+    );
+  };
   return (
     <div className='mt-24 px-24 flex flex-col gap-7'> 
       
@@ -13,6 +23,77 @@ export const Linear = () => {
     <h1 className="text-center text-7xl font-extrabold bg-gradient-to-r from-blue-500 via-teal-400 to-purple-600 bg-clip-text text-transparent relative inline-block transition-all duration-300 ease-in-out hover:scale-105 hover:drop-shadow-lg after:content-[''] after:absolute after:left-0 after:bottom-[-5px] after:w-full after:h-1 after:bg-gradient-to-r after:from-blue-500 after:via-teal-400 after:to-purple-600 after:rounded-full after:transition-all after:duration-300 after:ease-in-out">
       LINEAR SEARCH
     </h1>
+
+{/* Input & Search Button */}
+<div className="flex flex-col items-center justify-center text-center mb-4">
+  <p className="mb-2">🟢 Array: {JSON.stringify(array)}</p>
+  <div className="flex flex-col sm:flex-row items-center gap-2">
+    <input
+      type="number"
+      value={target}
+      onChange={(e) => setTarget(e.target.value)}
+      className="border p-2 rounded text-center"
+      placeholder="Enter number to search"
+    />
+    <button
+      onClick={handleSearch}
+      className="text-white bg-green-500 px-4 py-2 rounded-full hover:bg-blue-600 border-2 transition-all"
+    >
+      Search
+    </button>
+  </div>
+
+  {/* Search Result */}
+  {result && <p className="mt-3 text-lg font-semibold">{result}</p>}
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     {/* linearsearch description code... */}
 
@@ -23,6 +104,9 @@ export const Linear = () => {
     is traversed from one end to find the <span className="text-yellow-300">desired value</span>.
   </p>
 </div>
+
+
+
 
 
 {/* image section */}
@@ -161,38 +245,6 @@ export const Linear = () => {
   </p>
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-    
-    
-    
     
     </div>
   )

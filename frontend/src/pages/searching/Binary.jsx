@@ -1,9 +1,46 @@
-import React from 'react'
+import React , {useState} from "react";
 import BINARY_SEARCH_IMG from "../../assets/binnary-search-.webp";
 
 
 
+
 export const Binary = () => {
+  const [array] = useState([2, 5, 8, 12, 16, 23, 38, 56, 72, 91]); // Updated example array
+  const [target, setTarget] = useState("");
+  const [result, setResult] = useState(null);
+  const [iterations, setIterations] = useState(0); // Count iterations
+
+  // Binary Search Function
+  const binarySearch = (arr, target) => {
+    let left = 0,
+      right = arr.length - 1,
+      count = 0; // Count iterations
+
+    while (left <= right) {
+      let mid = Math.floor((left + right) / 2);
+      count++; // Increment iteration count
+
+      if (arr[mid] === target) {
+        setIterations(count);
+        return mid;
+      }
+      if (arr[mid] < target) left = mid + 1;
+      else right = mid - 1;
+    }
+
+    setIterations(count);
+    return -1;
+  };
+
+  // Handle search event
+  const handleSearch = () => {
+    const index = binarySearch(array, parseInt(target));
+    setResult(
+      index !== -1
+        ? `✅ Element found at index ${index} in ${iterations} iterations`
+        : "❌ Element not found"
+    );
+  };
   return (
     <div className='mt-24 px-24 flex flex-col gap-7'>
 
@@ -12,6 +49,27 @@ export const Binary = () => {
     <h1 className="text-center text-7xl font-extrabold bg-gradient-to-r from-blue-500 via-teal-400 to-purple-600 bg-clip-text text-transparent relative inline-block transition-all duration-300 ease-in-out hover:scale-105 hover:drop-shadow-lg after:content-[''] after:absolute after:left-0 after:bottom-[-5px] after:w-full after:h-1 after:bg-gradient-to-r after:from-blue-500 after:via-teal-400 after:to-purple-600 after:rounded-full after:transition-all after:duration-300 after:ease-in-out">
       BINARY SEARCH
     </h1>
+
+    {/* Input & Search Button */}
+<div className="lex flex-col items-center justify-center text-center mb-4">
+            <p className="mb-2">🟢 Sorted Array: {JSON.stringify(array)}</p>
+            <input
+              type="number"
+              value={target}
+              onChange={(e) => setTarget(e.target.value)} 
+              className="border p-2 rounded mr-2"
+              placeholder="Enter number to search"
+            />
+            <button
+              onClick={handleSearch}
+              className="text-white bg-green-500 px-4 py-2 rounded-full hover:bg-blue-600 border-2 transition-all"
+            >
+              Search
+            </button>
+          </div>
+
+          {/* Search Result */}
+          {result && <p className="mt-3 text-lg font-semibold">{result}</p>}
 
     {/* binary search define section */}
 
@@ -33,6 +91,8 @@ export const Binary = () => {
             alt="bINARY SEARCH Visualization" 
             className="max-w-full h-auto rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:scale-105" />
           </div>
+
+
 
 
       {/* binary search working section */}

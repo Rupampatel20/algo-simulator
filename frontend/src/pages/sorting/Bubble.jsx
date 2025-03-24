@@ -23,68 +23,7 @@ export const Bubble = () => {
         adjacent elements if they are in the wrong order. It continues until the entire 
         array is sorted.
       </p>
-
-      <h3 className="text-blue-400 font-semibold text-xl mt-4">
-        📌 How Bubble Sort Works:
-      </h3>
-      <ul className="list-disc list-inside text-gray-300 mb-4">
-        <li>In each pass, adjacent elements are compared and swapped if needed.</li>
-        <li>The largest element moves to its correct position at the end.</li>
-        <li>This process is repeated until the array is fully sorted.</li>
-      </ul>
-
-      <h3 className="text-green-400 font-semibold text-xl mt-4">
-        🔢 Bubble Sort Code (C++)
-      </h3>
-      <pre className="bg-gray-800 p-4 rounded-lg text-sm overflow-x-auto border border-gray-700">
-        <code className="text-green-400">
-{`#include <bits/stdc++.h>
-using namespace std;
-
-void bubbleSort(vector<int>& arr) {
-    int n = arr.size();
-    for (int i = 0; i < n - 1; ++i) {
-        for (int j = 0; j < n - i - 1; ++j) {
-            if (arr[j] > arr[j + 1]) {
-                swap(arr[j], arr[j + 1]);
-            }
-        }
-    }
-}
-
-void printArray(vector<int>& arr) {
-    for (int val : arr) {
-        cout << val << " ";
-    }
-    cout << endl;
-}
-
-int main() {
-    vector<int> arr = {64, 34, 25, 12, 22, 11, 90};
-
-    cout << "Original array: ";
-    printArray(arr);
-
-    bubbleSort(arr);
-
-    cout << "Sorted array: ";
-    printArray(arr);
-
-    return 0;
-}`}
-        </code>
-      </pre>
-
-      <h3 className="text-yellow-400 font-semibold text-xl mt-4">
-        🎯 Output:
-      </h3>
-      <pre className="bg-gray-800 p-4 rounded-lg text-sm overflow-x-auto border border-gray-700">
-        <code className="text-yellow-300">
-{`Original array: 64 34 25 12 22 11 90
-Sorted array:   11 12 22 25 34 64 90`}
-        </code>
-      </pre>
-    </div>
+      </div>
 
 
 {/* bubble sort image example */}

@@ -63,20 +63,7 @@ export const Merge = () => {
 </div>
 
 
-{/* gfg button link code */}
 
-<div className="text-left my-6 p-4 border-l-4 border-blue-500 bg-gray-50 rounded-lg shadow-md">
-  <p className="text-lg text-gray-800 leading-relaxed">
-    Try it on 
-    <a href="https://www.geeksforgeeks.org/merge-sort/" target="_blank" rel="noopener noreferrer" 
-       className="text-blue-600 font-semibold hover:underline">
-       GfG Practice
-    </a>
-    <span className="inline-block ml-2">
-      🔗
-    </span>
-  </p>
-</div>
 
 {/* complexity time and Auxiliary Space Section  */}
 <div className="text-left my-6 pl-6">
@@ -158,80 +145,21 @@ export const Merge = () => {
       </div>
     </div>
 
-{/*  Implementation of Merge Sort (C++) */}
 
+{/* gfg button link code */}
 
-    <div className="text-left my-6 p-6 bg-gray-900 rounded-lg shadow-lg border border-gray-700">
-      <h3 className="text-2xl font-semibold text-white mb-4">
-        Implementation of Merge Sort (C++)
-      </h3>
-
-      {/* Code Block */}
-      <pre className="bg-gray-800 p-4 rounded-lg text-sm text-gray-200 overflow-x-auto">
-        <code>
-{`#include <bits/stdc++.h>
-using namespace std;
-
-// Merge function
-void merge(vector<int>& arr, int left, int mid, int right) {
-    int n1 = mid - left + 1;
-    int n2 = right - mid;
-    vector<int> L(n1), R(n2);
-
-    for (int i = 0; i < n1; i++) L[i] = arr[left + i];
-    for (int j = 0; j < n2; j++) R[j] = arr[mid + 1 + j];
-
-    int i = 0, j = 0, k = left;
-    while (i < n1 && j < n2) {
-        if (L[i] <= R[j]) arr[k++] = L[i++];
-        else arr[k++] = R[j++];
-    }
-
-    while (i < n1) arr[k++] = L[i++];
-    while (j < n2) arr[k++] = R[j++];
-}
-
-// Merge Sort function
-void mergeSort(vector<int>& arr, int left, int right) {
-    if (left >= right) return;
-
-    int mid = left + (right - left) / 2;
-    mergeSort(arr, left, mid);
-    mergeSort(arr, mid + 1, right);
-    merge(arr, left, mid, right);
-}
-
-// Function to print the array
-void printVector(vector<int>& arr) {
-    for (int num : arr) cout << num << " ";
-    cout << endl;
-}
-
-// Driver code
-int main() {
-    vector<int> arr = { 12, 11, 13, 5, 6, 7 };
-    cout << "Given vector is \\n";
-    printVector(arr);
-
-    mergeSort(arr, 0, arr.size() - 1);
-
-    cout << "\\nSorted vector is \\n";
-    printVector(arr);
-    return 0;
-}`}
-        </code>
-      </pre>
-
-      {/* Output Section */}
-      <div className="mt-6 p-4 bg-gray-800 rounded-lg text-gray-300">
-        <h4 className="text-lg font-semibold text-yellow-400">📌 Output:</h4>
-        <pre className="mt-2">
-          Given array is {"\n"}12 11 13 5 6 7{"\n\n"}
-          Sorted array is {"\n"}5 6 7 11 12 13
-        </pre>
-      </div>
-    </div>
-
+<div className="text-left my-6 p-4 border-l-4 border-blue-500 bg-gray-50 rounded-lg shadow-md">
+  <p className="text-lg text-gray-800 leading-relaxed">
+    Try it on 
+    <a href="https://www.geeksforgeeks.org/merge-sort/" target="_blank" rel="noopener noreferrer" 
+       className="text-blue-600 font-semibold hover:underline">
+       GfG Practice
+    </a>
+    <span className="inline-block ml-2">
+      🔗
+    </span>
+  </p>
+</div>
 
     </div>
   )
