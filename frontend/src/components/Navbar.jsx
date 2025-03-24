@@ -74,12 +74,37 @@ const Navbar = () => {
           {menuOpen ? <FaTimes /> : <FaBars />}
         </button>
 
-        {/* Navigation Menu */}
+        {/* Navigation Menu 
         <ul
           className={`md:flex md:space-x-10 text-lg font-semibold absolute md:relative bg-gray-900 md:bg-transparent w-full md:w-auto left-0 top-16 md:top-auto transition-all duration-300 ${menuOpen ? "block" : "hidden"} md:flex`}
         >
           <a href="/" className='cursor-pointer hover:text-yellow-400'>Home</a>
           <a href="/#About" className='cursor-pointer hover:text-yellow-400'>About</a>
+          <Dropdown title="Sorting" options={sortingOptions} />
+          <Dropdown title="Searching" options={searhingOptions} />
+        </ul>*/}
+
+<ul
+          className={`md:flex md:space-x-10 text-lg font-semibold absolute md:relative bg-gray-900 md:bg-transparent w-full md:w-auto left-0 top-16 md:top-auto transition-all duration-300 ${
+            menuOpen ? "block" : "hidden"
+          } md:flex`}
+        >
+          <li className="px-4 py-2">
+            <a
+              href="/"
+              className="cursor-pointer hover:text-yellow-400 flex items-center"
+            >
+              Home
+            </a>
+          </li>
+          <li className="px-4 py-2">
+            <a
+              href="/#About"
+              className="cursor-pointer hover:text-yellow-400 flex items-center"
+            >
+              About
+            </a>
+          </li>
           <Dropdown title="Sorting" options={sortingOptions} />
           <Dropdown title="Searching" options={searhingOptions} />
         </ul>
