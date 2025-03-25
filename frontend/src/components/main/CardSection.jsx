@@ -40,23 +40,27 @@ const CardSection = () => {
 
         {/* Searching Card + Button */}
         <div className="flex flex-col items-center">
-          <div className="group relative w-80 h-96 bg-gray-100 rounded-3xl shadow-2xl overflow-hidden transform transition-all duration-500 hover:scale-105 hover:shadow-2xl">
-            <img
-              src={searchingImage}
-              alt="Searching"
-              className="w-full h-2/3 object-cover transition-opacity duration-500 opacity-80 group-hover:opacity-100"
-            />
-            <div className="p-5 text-center">
-              <h3 className="text-xl font-semibold text-gray-800 transition-all duration-300 group-hover:text-yellow-500">
-                Searching Algorithms
-              </h3>
-              <p className="text-sm text-gray-500">Explore efficient searching techniques.</p>
+          <a href="/searching">
+            <div className="group relative w-80 h-96 bg-gray-100 rounded-3xl shadow-2xl overflow-hidden transform transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+              <img
+                src={searchingImage}
+                alt="Searching"
+                className="w-full h-2/3 object-cover transition-opacity duration-500 opacity-80 group-hover:opacity-100"
+              />
+              <div className="p-5 text-center">
+                <h3 className="text-xl font-semibold text-gray-800 transition-all duration-300 group-hover:text-yellow-500">
+                  Searching Algorithms
+                </h3>
+                <p className="text-sm text-gray-500">Explore efficient searching techniques.</p>
+              </div>
             </div>
-          </div>
+          </a>
           {/* Searching Button - Positioned Directly Below */}
-          <button className="mt-4 px-6 py-3 bg-yellow-500 text-white font-semibold text-lg rounded-full shadow-lg transition-all duration-300 hover:bg-yellow-600 hover:scale-110 hover:shadow-xl">
-            Explore Searching
-          </button>
+          <a href="/searching">
+            <button className="mt-4 px-6 py-3 bg-yellow-500 text-white font-semibold text-lg rounded-full shadow-lg transition-all duration-300 hover:bg-yellow-600 hover:scale-110 hover:shadow-xl">
+              Explore Searching
+            </button>
+          </a>
         </div>
       </div>
     </section>
