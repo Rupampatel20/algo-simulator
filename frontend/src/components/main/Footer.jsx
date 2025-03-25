@@ -12,7 +12,7 @@ const Footer = () => {
         <div>
           <h2 className="text-lg font-bold text-gray-700 mb-4 hover:text-green-600 transition-all duration-300">Sorting & Searching</h2>
           <ul className="space-y-2 text-gray-600">
-            <li className="hover:text-green-600 transition-all duration-300 cursor-pointer">Sorting Algorithms</li>
+            <li className="hover:text-green-600 transition-all duration-300 cursor-pointer"><a target="_blank" href="https://www.geeksforgeeks.org/sorting-algorithms/">Sorting Algorithms</a></li>
             <li className="hover:text-green-600 transition-all duration-300 cursor-pointer">SearchingSearching Algorithms</li>
             <li className="hover:text-green-600 transition-all duration-300 cursor-pointer">Comparison Analysis</li>
             <li className="hover:text-green-600 transition-all duration-300 cursor-pointer">Visualization Tools</li>

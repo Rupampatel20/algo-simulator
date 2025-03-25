@@ -1,8 +1,64 @@
 import React from "react";
 import { FaSearch } from "react-icons/fa";
 import backgroundImage from "../../assets/backgroung.jpg"; // Ensure this path is correct
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const HeroSection = () => {
+  const navigate = useNavigate();
+  const [searchTerm, setSearchTerm] = useState("");
+  const [suggestions, setSuggestions] = useState([]);
+
+  const sorts = ["heap", "bubble", "selection", "insertion", "quick", "merge"];
+  const searches = ["binary", "linear"];
+
+  // List of valid routes for search
+  const validRoutes = [
+    "/",
+    "/sorting",
+    "/searching",
+    ...sorts.map((s) => `/sorting/${s}`),
+    ...searches.map((s) => `/searching/${s}`),
+  ];
+
+  // Function to filter suggestions based on input
+  const handleInputChange = (e) => {
+    const input = e.target.value.toLowerCase().trim();
+    setSearchTerm(input);
+
+    if (!input) {
+      setSuggestions([]);
+      return;
+    }
+
+    // Get matching routes based on input
+    const filteredSuggestions = validRoutes.filter((route) =>
+      route.includes(input)
+    );
+
+    setSuggestions(filteredSuggestions);
+  };
+
+  // Function to handle search
+  const handleSearch = (query = searchTerm) => {
+    const term = query.trim().toLowerCase();
+    const formattedSearch1 = `/${term}`;
+    const formattedSearch2 = `/sorting/${term}`;
+    const formattedSearch3 = `/searching/${term}`;
+
+    if (validRoutes.includes(formattedSearch1) || validRoutes.includes(formattedSearch2) || validRoutes.includes(formattedSearch3)) {
+      if (sorts.includes(term)) {
+        navigate(`/sorting/${term}`);
+      } else if (searches.includes(term)) {
+        navigate(`/searching/${term}`);
+      } else {
+        navigate(formattedSearch1);
+      }
+    } else {
+      alert("Route not found. Please check the spelling!");
+    }
+    setSuggestions([]); // Hide suggestions after search
+  };
   return (
     <section
       className="relative mt-20 bg-cover bg-center h-screen flex items-center justify-center text-center text-white"
@@ -33,17 +89,38 @@ const HeroSection = () => {
             type="text"
             placeholder="Search an algorithm..."
             className="w-full py-4 pl-6 pr-14 text-gray-900 bg-white/80 rounded-full shadow-lg backdrop-blur-md focus:outline-none focus:ring-4 focus:ring-yellow-500 transition-all duration-300 hover:shadow-2xl hover:bg-white/90 hover:border-2 hover:border-yellow-500"
+            value={searchTerm}
+            onChange={handleInputChange}
+            onKeyDown={(e) => e.key === "Enter" && handleSearch()}
           />
-          <button className="absolute right-5 top-1/2 transform -translate-y-1/2 text-gray-600 group-hover:text-yellow-500 transition-all duration-300 hover:scale-110">
+          <button
+            className="absolute right-5 top-1/2 transform -translate-y-1/2 text-gray-600 group-hover:text-yellow-500 transition-all duration-300 hover:scale-110"
+            onClick={() => handleSearch()}
+          >
             <FaSearch className="text-2xl" />
           </button>
+
+          {/* Suggestion List */}
+          {suggestions.length > 0 && (
+            <ul className="absolute z-10 w-full mt-2 bg-white border text-black border-gray-300 rounded-lg shadow-lg">
+              {suggestions.map((suggestion, index) => (
+                <li
+                  key={index}
+                  className="px-4 py-2 cursor-pointer hover:bg-yellow-100 transition-all"
+                  onClick={() => handleSearch(suggestion.replace("/sorting/", "").replace("/searching/", "").replace("/", ""))}
+                >
+                  {suggestion.split('/').pop()}
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
 
         {/* CTA Buttons */}
         <div className="flex justify-center gap-6 mt-8">
           <a href="#card-section">
             <button
-            className="px-6 py-3 bg-yellow-500 text-black font-semibold rounded-full shadow-lg transition-all duration-300 hover:bg-yellow-600 hover:scale-105"
+              className="px-6 py-3 bg-yellow-500 text-black font-semibold rounded-full shadow-lg transition-all duration-300 hover:bg-yellow-600 hover:scale-105"
             >
               Get Started
             </button>
