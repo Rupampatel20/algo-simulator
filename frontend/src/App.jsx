@@ -19,6 +19,8 @@ import {Binary} from "./pages/searching/Binary";
 
 
 
+
+
 const App = () => {
   const router = createBrowserRouter([
 
@@ -72,15 +74,10 @@ const App = () => {
       path: "/searching/linear",
       element: <Linear Search/>
     },
+
+
+
     
-
-    
-
-  
-    
-
-
-
 
 
 

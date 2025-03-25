@@ -2,8 +2,6 @@ import React , {useState} from "react";
 import BINARY_SEARCH_IMG from "../../assets/binnary-search-.webp";
 
 
-
-
 export const Binary = () => {
   const [array] = useState([2, 5, 8, 12, 16, 23, 38, 56, 72, 91]); // Updated example array
   const [target, setTarget] = useState("");
@@ -91,8 +89,6 @@ export const Binary = () => {
             alt="bINARY SEARCH Visualization" 
             className="max-w-full h-auto rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:scale-105" />
           </div>
-
-
 
 
       {/* binary search working section */}
@@ -264,25 +260,6 @@ export const Binary = () => {
     </span>
   </p>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     </div>
   )
