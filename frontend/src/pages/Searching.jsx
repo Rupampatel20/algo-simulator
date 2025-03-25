@@ -8,6 +8,7 @@ export const Searching = () => {
 
   const searching = [
     { name: 'Linear Search', img: IMG, description: 'Simple sequential search algorithm.', link: '/searching/linear' },
+    
     { name: 'Binary Search', img: IMG, description: 'Efficient divide and conquer search.', link: '/searching/binary' },
   ];
 
