@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import IMG from "../assets/logo.png";
+import IMG from "../assets/linear search example.gif";
+import BINARYSEARCH from "../assets/binary search example.gif";
 
 export const Searching = () => {
   const navigate = useNavigate();
@@ -9,7 +10,7 @@ export const Searching = () => {
   const searching = [
     { name: 'Linear Search', img: IMG, description: 'Simple sequential search algorithm.', link: '/searching/linear' },
     
-    { name: 'Binary Search', img: IMG, description: 'Efficient divide and conquer search.', link: '/searching/binary' },
+    { name: 'Binary Search', img:BINARYSEARCH , description: 'Efficient divide and conquer search.', link: '/searching/binary' },
   ];
 
   const handleMouseEnter = (index) => {
@@ -55,3 +56,7 @@ export const Searching = () => {
     </main>
   );
 };
+
+
+
+

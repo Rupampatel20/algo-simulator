@@ -36,7 +36,7 @@ const Footer = () => {
           <ul className="space-y-2 text-gray-600">
             <li className="hover:text-green-600 transition-all duration-300 cursor-pointer">Email: rupampatel786@gmail.com</li>
             <li className="hover:text-green-600 transition-all duration-300 cursor-pointer">Phone: +91 7999482004</li>
-            <li className="hover:text-green-600 transition-all duration-300 cursor-pointer">Live Chat Support</li>
+            {/* <li className="hover:text-green-600 transition-all duration-300 cursor-pointer">Live Chat Support</li> */}
           </ul>
         </div>
       </div>
@@ -44,19 +44,19 @@ const Footer = () => {
       {/* Social Media & Policies */}
       <div className="text-center mt-10 relative z-10">
         <div className="flex justify-center space-x-4 text-2xl text-gray-700">
-          <FaFacebook className="hover:text-green-600 transition-all duration-300 cursor-pointer" />
+          {/* <FaFacebook className="hover:text-green-600 transition-all duration-300 cursor-pointer" />
           {/* <FaTwitter className="hover:text-green-600 transition-all duration-300 cursor-pointer" /> */}
           <FaLinkedin className="hover:text-green-600 transition-all duration-300 cursor-pointer" />
-          <FaInstagram className="hover:text-green-600 transition-all duration-300 cursor-pointer" />
+          {/* <FaInstagram className="hover:text-green-600 transition-all duration-300 cursor-pointer" /> */}
           <FaGithub className="hover:text-green-600 transition-all duration-300 cursor-pointer" />
         </div>
         <p className="text-gray-600 text-sm mt-4">&copy; {new Date().getFullYear()} SEARCHSORTPLAY. All rights reserved.</p>
-        <p className="text-gray-500 text-xs mt-2">
+        {/* <p className="text-gray-500 text-xs mt-2">
           <a href="#" className="hover:text-green-600 transition-all duration-300">Terms of Service</a> |
           <a href="#" className="hover:text-green-600 transition-all duration-300"> Privacy Policy</a> |
           <a href="#" className="hover:text-green-600 transition-all duration-300"> Refund Policy</a> |
           <a href="#" className="hover:text-green-600 transition-all duration-300"> Accessibility Policy</a>
-        </p>
+        </p> */}
       </div>
     </footer>
   );
