@@ -1,7 +1,7 @@
 import React from "react";
-import aboutImg1 from "../../assets/graph-4737109_1920.jpg";
-import aboutImg2 from "../../assets/linear_search.gif";
-import aboutImg3 from "../../assets/chart-3373119_1920.jpg";
+// import aboutImg1 from "../../assets/graph-4737109_1920.jpg";
+// import aboutImg2 from "../../assets/linear_search.gif";
+import aboutImg3 from "../../assets/sorting aboutus.png";
 
 const About = () => {
   return (
@@ -13,16 +13,16 @@ const About = () => {
       <div className="flex flex-col md:flex-row items-center gap-10">
         {/* Left Side - Images */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full md:w-1/2">
-          <img
+          {/* <img
             src={aboutImg1}
             alt="Sorting Visualization"
             className="rounded-lg shadow-lg hover:scale-105 hover:rotate-2 transition-transform duration-300"
-          />
-          <img
+          /> */}
+          {/* <img
             src={aboutImg2}
             alt="Algorithm Demonstration"
             className="rounded-lg shadow-lg hover:scale-105 hover:-rotate-2 transition-transform duration-300"
-          />
+          /> */}
           <img
             src={aboutImg3}
             alt="User Interaction"

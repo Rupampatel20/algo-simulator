@@ -90,7 +90,7 @@ export const Bubble = () => {
 
     {/* gfg button link code */}
 
-<div className="text-left my-6 p-4 border-l-4 border-blue-500 bg-gray-50 rounded-lg shadow-md">
+{/* <div className="text-left my-6 p-4 border-l-4 border-blue-500 bg-gray-50 rounded-lg shadow-md">
   <p className="text-lg text-gray-800 leading-relaxed">
     Try it on 
     <a href="https://www.geeksforgeeks.org/bubble-sort/" target="_blank" rel="noopener noreferrer" 
@@ -101,7 +101,7 @@ export const Bubble = () => {
       🔗
     </span>
   </p>
-</div>
+</div> */}
 
     </div>
   )

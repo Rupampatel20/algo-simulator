@@ -47,54 +47,6 @@ export const Linear = () => {
   {result && <p className="mt-3 text-lg font-semibold">{result}</p>}
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     {/* linearsearch description code... */}
 
     <div className="text-xl text-gray-200 bg-gradient-to-r from-gray-800 via-gray-900 to-black p-6 rounded-lg shadow-lg border border-gray-700 leading-relaxed tracking-wide">
@@ -105,10 +57,6 @@ export const Linear = () => {
   </p>
 </div>
 
-
-
-
-
 {/* image section */}
 
 <div className="flex justify-center items-center p-6">
@@ -117,7 +65,6 @@ export const Linear = () => {
             alt="bINARY SEARCH Visualization" 
             className="max-w-full h-auto rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:scale-105" />
           </div>
-
 
 
           <div className="text-xl text-gray-200 bg-gradient-to-r from-gray-800 via-gray-900 to-black p-6 rounded-lg shadow-lg border border-gray-700 leading-relaxed tracking-wide">
@@ -149,9 +96,6 @@ export const Linear = () => {
   </ul>
 </div>
 
-
-
-
 <div className="text-xl text-gray-200 bg-gradient-to-r from-gray-800 via-gray-900 to-black p-6 rounded-lg shadow-lg border border-gray-700 leading-relaxed tracking-wide">
   <p>
     <span className="text-yellow-400 font-semibold">Application of Linear Search:</span>
@@ -178,9 +122,6 @@ export const Linear = () => {
     </li>
   </ul>
 </div>
-
-
-
 
 
 <div className="text-xl text-gray-200 bg-gradient-to-r from-gray-800 via-gray-900 to-black p-6 rounded-lg shadow-lg border border-gray-700 leading-relaxed tracking-wide">
@@ -232,7 +173,7 @@ export const Linear = () => {
 
 {/* gfg button link code */}
 
-<div className="text-left my-6 p-4 border-l-4 border-blue-500 bg-gray-50 rounded-lg shadow-md">
+{/* <div className="text-left my-6 p-4 border-l-4 border-blue-500 bg-gray-50 rounded-lg shadow-md">
   <p className="text-lg text-gray-800 leading-relaxed">
     Try it on 
     <a href="https://www.geeksforgeeks.org/linear-search/" target="_blank" rel="noopener noreferrer" 
@@ -243,7 +184,7 @@ export const Linear = () => {
       🔗
     </span>
   </p>
-</div>
+</div> */}
 
     
     </div>
