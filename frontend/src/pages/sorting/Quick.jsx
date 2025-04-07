@@ -1,258 +1,348 @@
-import React from 'react'
-import QUICK_SORT_IMG from "../../assets/quick sort.webp"
+import React, { useState, useEffect } from 'react';
+import QUICK_SORT_IMG from "../../assets/quick sort.webp";
+import QUICKSORTIMG from "../../assets/quick.gif";
 
 export const Quick = () => {
+  const [array, setArray] = useState([]);
+  const [speed, setSpeed] = useState(300);
+  const [isSorting, setIsSorting] = useState(false);
+  const [inputValue, setInputValue] = useState("");
+  const [activeIndices, setActiveIndices] = useState([]);
+  const [pivotIndex, setPivotIndex] = useState(null);
+
+  useEffect(() => {
+    generateNewArray();
+  }, []);
+
+  const generateNewArray = () => {
+    const newArr = Array.from({ length: 40 }, () => Math.floor(Math.random() * 300) + 50);
+    setArray(newArr);
+    setActiveIndices([]);
+    setPivotIndex(null);
+  };
+
+  const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
+  const quickSort = async (arr, low, high) => {
+    if (low < high) {
+      const pi = await partition(arr, low, high);
+      await quickSort(arr, low, pi - 1);
+      await quickSort(arr, pi + 1, high);
+    }
+  };
+
+  const partition = async (arr, low, high) => {
+    const pivot = arr[high];
+    setPivotIndex(high);
+    let i = low - 1;
+    for (let j = low; j < high; j++) {
+      setActiveIndices([i + 1, j]);
+      if (arr[j] < pivot) {
+        i++;
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+        setArray([...arr]);
+        await sleep(speed);
+      }
+    }
+    [arr[i + 1], arr[high]] = [arr[high], arr[i + 1]];
+    setArray([...arr]);
+    setActiveIndices([i + 1, high]);
+    await sleep(speed);
+    setPivotIndex(null);
+    return i + 1;
+  };
+
+  const startQuickSort = async () => {
+    setIsSorting(true);
+    let arrCopy = [...array];
+    await quickSort(arrCopy, 0, arrCopy.length - 1);
+    setActiveIndices([]);
+    setPivotIndex(null);
+    setIsSorting(false);
+  };
+
+  const handleAddValue = () => {
+    if (inputValue.trim() === "") return;
+    const values = inputValue.split(',').map(v => parseInt(v.trim(), 10)).filter(v => !isNaN(v) && v > 0);
+    if (values.length > 0) {
+      setArray(values);
+      setInputValue("");
+    }
+  };
+
   return (
-    
-    <div className='mt-24 px-24 flex flex-col gap-7'>
 
-       {/* quick sort heading code... */}
+    // heading section
 
-    <h1 className="text-center text-7xl font-extrabold bg-gradient-to-r from-blue-500 via-teal-400 to-purple-600 bg-clip-text text-transparent relative inline-block transition-all duration-300 ease-in-out hover:scale-105 hover:drop-shadow-lg after:content-[''] after:absolute after:left-0 after:bottom-[-5px] after:w-full after:h-1 after:bg-gradient-to-r after:from-blue-500 after:via-teal-400 after:to-purple-600 after:rounded-full after:transition-all after:duration-300 after:ease-in-out">
-      QUICK SORT
-    </h1>
+    <div className='mt-24 px-4 md:px-24 flex flex-col gap-10'>
 
-    {/* quick sort paragraph code */}
+<h1 className="text-center text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent px-4 py-6 leading-tight tracking-tight transition-transform duration-300 ease-in-out transform hover:scale-105 hover:drop-shadow-[0_5px_25px_rgba(100,100,255,0.4)]">
+  Quick Sort Algorithm
+</h1>
 
-    <div className="text-xl text-gray-200 bg-gradient-to-r from-gray-800 via-gray-900 to-black p-6 rounded-lg shadow-lg border border-gray-700 leading-relaxed tracking-wide">
-      Quick Sort is a sorting algorithm based on the <span className="text-yellow-400 font-semibold">Divide and Conquer</span> approach.
-      It works by selecting a pivot element and partitioning the array around that pivot, placing it in its correct sorted position.
-      <br />
-      The process involves dividing the array into two subarrays: elements smaller than the pivot on one side and larger elements on the other side.
-      Quick Sort then recursively sorts the subarrays until the entire array is sorted.
-      <br />
-      Quick Sort achieves an average and worst-case time complexity of
-      <span className="text-yellow-400 font-semibold"> O(n log n) </span>,
-      making it an efficient and widely used sorting technique.
+      {/* defection  section */}
+
+      <div className="text-xl text-gray-200 bg-gradient-to-r from-gray-800 via-gray-900 to-black p-6 rounded-lg shadow-lg border border-gray-700">
+        QuickSort is a sorting algorithm based on the Divide and Conquer that picks an element as a pivot and partitions the given array around the picked pivot by placing the pivot in its correct position in the sorted array.<span className="text-yellow-400 font-semibold"></span> 
+      </div>
+
+      <div className="flex flex-col md:flex-row gap-4 items-center">
+        <input
+          type="text"
+          placeholder="Enter comma-separated numbers"
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+          disabled={isSorting}
+          className="w-full md:w-96 px-4 py-2 rounded-md shadow-lg text-black"
+        />
+        <button
+          onClick={handleAddValue}
+          disabled={isSorting}
+          className={`px-6 py-2 font-bold rounded-lg transition-all shadow-lg ${isSorting ? 'bg-gray-500 cursor-not-allowed' : 'bg-green-600 hover:bg-green-700'} text-white`}
+        >
+          Add Values
+        </button>
+      </div>
+
+      <div className="flex flex-col md:flex-row items-center gap-6">
+        <button
+          onClick={startQuickSort}
+          disabled={isSorting}
+          className={`px-6 py-3 font-bold rounded-lg transition-all shadow-lg ${isSorting ? 'bg-gray-500 cursor-not-allowed' : 'bg-purple-600 hover:bg-purple-700'} text-white`}
+        >
+          {isSorting ? 'Sorting...' : 'Start Quick Sort'}
+        </button>
+
+        <div className="flex flex-col text-white">
+          <label htmlFor="speedSlider" className="mb-1">Speed: {speed}ms</label>
+          <input
+            type="range"
+            id="speedSlider"
+            min="100"
+            max="1000"
+            step="50"
+            value={speed}
+            onChange={(e) => setSpeed(Number(e.target.value))}
+            className="w-64"
+          />
+        </div>
+
+        <button
+          onClick={generateNewArray}
+          disabled={isSorting}
+          className={`px-6 py-3 font-bold rounded-lg transition-all shadow-lg ${isSorting ? 'bg-gray-500 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700'} text-white`}
+        >
+          New Array
+        </button>
+      </div>
+
+      <div className="flex items-end justify-start h-[420px] bg-black rounded-lg mt-7 p-4 gap-[4px] overflow-x-auto">
+        {array.map((value, idx) => {
+          let bgClass = "bg-gradient-to-t from-purple-500 via-blue-500 to-teal-400";
+          if (pivotIndex === idx) bgClass = "bg-red-500";
+          else if (activeIndices.includes(idx)) bgClass = "bg-yellow-400";
+
+          return (
+            <div key={idx} className="flex flex-col items-center w-8 relative">
+              <div className="absolute -top-7 text-white text-sm font-medium">
+                {value}
+              </div>
+              <div
+                style={{ height: `${value}px` }}
+                className={`w-full ${bgClass} rounded-t`}
+              ></div>
+            </div>
+          );
+        })}
+      </div>
+
+        {/* how quick sort work section */}
+
+      <div className="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white p-8 rounded-xl shadow-lg space-y-6">
+  <h2 className="text-3xl md:text-4xl font-bold text-center text-cyan-400">
+    How does QuickSort Algorithm work?
+  </h2>
+
+  <p className="text-lg leading-relaxed">
+    QuickSort works on the principle of <span className="text-yellow-400 font-semibold">Divide and Conquer</span>,
+    breaking down the problem into smaller sub-problems.
+  </p>
+
+  <div className="space-y-4">
+    <h3 className="text-2xl font-semibold text-purple-400">Steps Involved:</h3>
+    <ul className="list-decimal list-inside space-y-2 text-base pl-4">
+      <li>
+        <span className="text-cyan-300 font-medium">Choose a Pivot:</span> Select an element from the array as the pivot. The choice of pivot can vary
+        (e.g., first element, last element, random element, or median).
+      </li>
+      <li>
+        <span className="text-cyan-300 font-medium">Partition the Array:</span> Rearrange the array around the pivot. All elements smaller than the pivot
+        go to its left, and those greater go to its right. The pivot is now in its correct sorted position.
+      </li>
+      <li>
+        <span className="text-cyan-300 font-medium">Recursively Call:</span> Apply the same steps to the left and right sub-arrays created from partitioning.
+      </li>
+    </ul>
+  </div>
+
+  <p className="text-lg text-gray-300">
+    <span className="font-semibold text-green-400">Base Case:</span> The recursion stops when the sub-array has only one element, as it is already sorted.
+  </p>
+
+  <p className="text-lg text-gray-400 italic">
+    This is a high-level overview of how the QuickSort algorithm works.
+  </p>
+</div>
+        {/* image section */}
+
+      <div className="flex justify-center mt-8">
+        <img src={QUICK_SORT_IMG} alt="Quick Sort" className="max-w-full h-auto rounded-lg shadow-lg" />
+      </div>
+
+      <div className="flex justify-center mt-8">
+        <img src={QUICKSORTIMG} alt="Quick Sort" className="max-w-full h-auto rounded-lg shadow-lg" />
+      </div>
+
+        {/* Choice of Pivot */}
+
+      <div className="bg-gradient-to-br from-slate-900 via-gray-900 to-black text-white p-8 rounded-xl shadow-lg space-y-6 mt-10">
+  <h2 className="text-3xl md:text-4xl font-bold text-center text-orange-400">
+    Choice of Pivot
+  </h2>
+
+  <p className="text-lg text-gray-300 leading-relaxed">
+    There are many different strategies for selecting the pivot in the QuickSort algorithm. The choice of pivot can significantly affect performance.
+  </p>
+
+  <div className="space-y-5">
+    <div className="bg-gray-800 p-5 rounded-lg border-l-4 border-red-500">
+      <h3 className="text-xl font-semibold text-red-400 mb-2">1. First or Last Element</h3>
+      <p className="text-base">
+        Always pick the first (or last) element as the pivot. This is a simple approach but can lead to the <span className="text-red-300 font-medium">worst-case</span> performance when the array is already sorted.
+        <br />
+        <span className="italic text-sm text-gray-400">Note: Our current implementation picks the last element as pivot.</span>
+      </p>
     </div>
 
-
-
-    <div className="text-lg text-gray-200 bg-gradient-to-r from-gray-800 via-gray-900 to-black p-6 rounded-lg shadow-lg border border-gray-700 leading-relaxed tracking-wide">
-      <h2 className="text-2xl font-bold text-yellow-400 mb-4">QuickSort Algorithm</h2>
-      
-      <p className="mb-4">
-        QuickSort is a sorting algorithm based on the <span className="font-semibold text-yellow-300">Divide and Conquer</span> principle, 
-        breaking down the problem into smaller sub-problems.
-      </p>
-
-      <div className="bg-gray-700 p-4 rounded-lg shadow-md">
-        <h3 className="text-xl font-semibold text-purple-400">🛠️ Steps in QuickSort Algorithm:</h3>
-        <ul className="list-disc list-inside text-gray-300 mt-2 space-y-2">
-          <li>
-            <span className="text-yellow-300 font-semibold">Choose a Pivot:</span> Select an element as the pivot 
-            (first element, last element, random, or median).
-          </li>
-          <li>
-            <span className="text-yellow-300 font-semibold">Partition the Array:</span> Rearrange elements so that values smaller 
-            than the pivot are on the left and greater values are on the right.
-          </li>
-          <li>
-            <span className="text-yellow-300 font-semibold">Recursively Call:</span> Apply QuickSort on the left and right sub-arrays.
-          </li>
-          <li>
-            <span className="text-yellow-300 font-semibold">Base Case:</span> The recursion stops when there is only one element left in the sub-array, as a single element is already sorted.
-          </li>
-        </ul>
-      </div>
-
-      <p className="mt-4">
-        QuickSort achieves an average and worst-case time complexity of 
-        <span className="text-yellow-400 font-semibold"> O(n log n) </span>, making it one of the most efficient sorting techniques.
+    <div className="bg-gray-800 p-5 rounded-lg border-l-4 border-blue-500">
+      <h3 className="text-xl font-semibold text-blue-400 mb-2">2. Random Element</h3>
+      <p className="text-base">
+        A more robust approach is to randomly select a pivot. This helps avoid patterns that lead to the worst-case and provides better average-case performance.
+        <br />
+        <span className="italic text-sm text-gray-400">This is a preferred choice in practice.</span>
       </p>
     </div>
 
-    <div className="flex justify-center items-center p-6">
-          <img 
-            src={QUICK_SORT_IMG} 
-            alt="quick Sort Visualization" 
-            className="max-w-full h-auto rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:scale-105" />
-          </div>
-
-
-
-
-          <div className="text-gray-200 bg-gradient-to-r from-gray-800 via-gray-900 to-black p-6 rounded-lg shadow-lg border border-gray-700 leading-relaxed tracking-wide">
-      <h2 className="text-2xl font-bold text-yellow-400 mb-4">📌 Choice of Pivot in QuickSort</h2>
-
-      <p className="mb-4">
-        The choice of pivot in QuickSort significantly affects its performance.
+    <div className="bg-gray-800 p-5 rounded-lg border-l-4 border-green-500">
+      <h3 className="text-xl font-semibold text-green-400 mb-2">3. Median Element</h3>
+      <p className="text-base">
+        Choosing the median element as pivot provides the best time complexity, as it always splits the array into equal halves. However, finding the median is expensive in practice.
+        <br />
+        <span className="italic text-sm text-gray-400">Ideal in theory, but less common due to its overhead.</span>
       </p>
-
-      <div className="bg-gray-700 p-4 rounded-lg shadow-md">
-        <h3 className="text-xl font-semibold text-purple-400">🔹 Common Pivot Choices:</h3>
-        <ul className="list-disc list-inside text-gray-300 mt-2 space-y-2">
-          <li>
-            <span className="text-yellow-300 font-semibold">First or Last Element:</span> 
-            Can cause worst-case performance when the array is already sorted.
-          </li>
-          <li>
-            <span className="text-yellow-300 font-semibold">Random Element:</span> 
-            Helps avoid worst-case scenarios by preventing predictable patterns.
-          </li>
-          <li>
-            <span className="text-yellow-300 font-semibold">Median Element:</span> 
-            Ensures even splits but requires extra computation to find the median.
-          </li>
-        </ul>
-      </div>
-
-      <h2 className="text-2xl font-bold text-yellow-400 mt-6 mb-4">🔄 Partition Algorithm</h2>
-      <p>
-        The **partition function** is crucial in QuickSort. It reorganizes elements around the pivot.
-      </p>
-
-      <div className="bg-gray-700 p-4 rounded-lg shadow-md mt-4">
-        <h3 className="text-xl font-semibold text-purple-400">🔹 Common Partitioning Techniques:</h3>
-        <ul className="list-disc list-inside text-gray-300 mt-2 space-y-2">
-          <li>
-            <span className="text-yellow-300 font-semibold">Naive Partition:</span> 
-            Uses extra space by copying elements into a temporary array before sorting.
-          </li>
-          <li>
-            <span className="text-yellow-300 font-semibold">Lomuto Partition:</span> 
-            Simpler method that swaps elements to ensure correct pivot placement.
-          </li>
-          <li>
-            <span className="text-yellow-300 font-semibold">Hoare’s Partition:</span> 
-            Most efficient, swaps elements from both ends to optimize partitioning.
-          </li>
-        </ul>
-      </div>
-
-      <p className="mt-4">
-        The partition function ensures that elements **smaller than the pivot** move to the left, 
-        while **larger elements** shift to the right.
-      </p>
-
     </div>
+  </div>
+</div>
 
 
+{/* Complexity Analysis of Quick Sort */}
 
-{/* Complexity Analysis of QuickSort section*/}
+<div className="bg-gradient-to-br from-black via-gray-900 to-slate-900 text-white p-8 rounded-xl shadow-lg mt-10 space-y-6">
+  <h2 className="text-3xl md:text-4xl font-bold text-center text-yellow-400">
+    Complexity Analysis of Quick Sort
+  </h2>
 
-<div className="text-gray-200 bg-gradient-to-r from-gray-800 via-gray-900 to-black p-6 rounded-lg shadow-lg border border-gray-700 leading-relaxed tracking-wide">
-      <h2 className="text-2xl font-bold text-yellow-400 mb-4">📌 Complexity Analysis of QuickSort</h2>
+  <div className="space-y-4 text-lg text-gray-300 leading-relaxed">
+    <p>
+      Quick Sort is an efficient, in-place, divide-and-conquer sorting algorithm. Its time complexity can vary depending on pivot selection and input data.
+    </p>
 
-      <p className="mb-4">
-        QuickSort is an efficient, divide-and-conquer sorting algorithm. However, its performance depends on how the pivot is chosen.
-      </p>
-
-      <div className="bg-gray-700 p-4 rounded-lg shadow-md">
-        <h3 className="text-xl font-semibold text-purple-400">🔹 Time Complexity:</h3>
-        <ul className="list-disc list-inside text-gray-300 mt-2 space-y-2">
-          <li>
-            <span className="text-yellow-300 font-semibold">Best Case: </span> 
-            <span className="text-green-400 font-semibold">Ω(n log n)</span> – Occurs when the pivot element divides the array into two equal halves.
-          </li>
-          <li>
-            <span className="text-yellow-300 font-semibold">Average Case: </span> 
-            <span className="text-blue-400 font-semibold">θ(n log n)</span> – On average, the pivot divides the array into two parts, but not necessarily equal.
-          </li>
-          <li>
-            <span className="text-yellow-300 font-semibold">Worst Case: </span> 
-            <span className="text-red-400 font-semibold">O(n²)</span> – Happens when the smallest or largest element is always chosen as the pivot (e.g., already sorted arrays).
-          </li>
-        </ul>
-      </div>
-
-      <h2 className="text-2xl font-bold text-yellow-400 mt-6 mb-4">🔄 Auxiliary Space Complexity</h2>
-      <div className="bg-gray-700 p-4 rounded-lg shadow-md">
-        <p className="text-gray-300">
-          QuickSort requires additional space for recursive function calls.
-        </p>
-        <p className="text-yellow-300 font-semibold mt-2">
-          Auxiliary Space: O(n) in the worst case (due to recursive call stack).
-        </p>
-      </div>
-
-      <div className="mt-6 p-4 bg-gray-800 border-l-4 border-yellow-500 rounded-lg shadow-md">
-        <p className="text-yellow-300 font-semibold">⚡ Optimization Tip:</p>
-        <p className="text-gray-300">
-          Using **randomized QuickSort** can help avoid worst-case scenarios by choosing a random pivot instead of the first or last element.
-        </p>
-      </div>
-    </div>
-
-    {/* advantages and disadvantages section */}
-
-    <div className="text-gray-200 bg-gradient-to-b from-gray-900 to-black p-8 rounded-lg shadow-lg border border-gray-700 leading-relaxed tracking-wide">
-      <h2 className="text-3xl font-bold text-yellow-400 mb-6 text-center">✨ QuickSort: Pros & Cons ✨</h2>
-
-      {/* Advantages Section */}
-      <div className="mb-8">
-        <h3 className="text-2xl font-semibold text-green-400 mb-4">✅ Advantages of QuickSort</h3>
-        <ul className="list-disc list-inside space-y-2 text-gray-300">
-          <li><span className="text-yellow-300 font-semibold">Efficient:</span> Works well for large datasets.</li>
-          <li><span className="text-yellow-300 font-semibold">Divide & Conquer:</span> Simplifies problem-solving.</li>
-          <li><span className="text-yellow-300 font-semibold">Low Overhead:</span> Uses minimal extra memory.</li>
-          <li><span className="text-yellow-300 font-semibold">Cache Friendly:</span> Operates in-place, improving memory efficiency.</li>
-          <li><span className="text-yellow-300 font-semibold">Fastest for Large Data:</span> When stability is not required.</li>
-          <li><span className="text-yellow-300 font-semibold">Tail Recursive:</span> Allows for tail call optimization.</li>
-        </ul>
-      </div>
-
-      {/* Disadvantages Section */}
-      <div>
-        <h3 className="text-2xl font-semibold text-red-400 mb-4">❌ Disadvantages of QuickSort</h3>
-        <ul className="list-disc list-inside space-y-2 text-gray-300">
-          <li><span className="text-yellow-300 font-semibold">Worst-Case Complexity:</span> O(n²) when pivot selection is poor.</li>
-          <li><span className="text-yellow-300 font-semibold">Not Ideal for Small Data:</span> Simpler algorithms work better for small arrays.</li>
-          <li><span className="text-yellow-300 font-semibold">Unstable Sort:</span> Does not maintain the relative order of equal elements.</li>
-        </ul>
-      </div>
-    </div>
-
-
-    {/* application section code */}
-
-    <div className="text-gray-200 bg-gradient-to-b from-gray-900 to-black p-8 rounded-lg shadow-lg border border-gray-700 leading-relaxed tracking-wide">
-      <h2 className="text-3xl font-bold text-blue-400 mb-6 text-center">🔹 Applications of QuickSort 🔹</h2>
-
-      <ul className="list-disc list-inside space-y-3 text-gray-300">
+    <div className="bg-gray-800 p-5 rounded-lg border-l-4 border-blue-500">
+      <h3 className="text-xl font-semibold text-blue-400 mb-1">🕒 Time Complexity:</h3>
+      <ul className="list-disc list-inside ml-4 space-y-1">
         <li>
-          <span className="text-yellow-300 font-semibold">Efficient for Large Datasets:</span> 
-          Performs well with an average-case time complexity of <span className="text-yellow-400">O(n log n)</span>.
+          <span className="text-green-300 font-medium">Best Case (Ω(n log n)):</span> Occurs when the pivot divides the array into two equal halves.
         </li>
         <li>
-          <span className="text-yellow-300 font-semibold">Partitioning Problems:</span> 
-          Used in finding the <span className="text-yellow-400">kth smallest element</span> or dividing arrays by pivot.
+          <span className="text-yellow-300 font-medium">Average Case (θ(n log n)):</span> On average, the pivot divides the array into two parts, but not necessarily equal.
         </li>
         <li>
-          <span className="text-yellow-300 font-semibold">Randomized Algorithms:</span> 
-          Enhances performance over deterministic approaches.
-        </li>
-        <li>
-          <span className="text-yellow-300 font-semibold">Cryptography:</span> 
-          Helps in generating <span className="text-yellow-400">random permutations</span> and secure encryption keys.
-        </li>
-        <li>
-          <span className="text-yellow-300 font-semibold">Parallelization:</span> 
-          The partitioning step can be parallelized for improved performance on <span className="text-yellow-400">multi-core or distributed systems</span>.
-        </li>
-        <li>
-          <span className="text-yellow-300 font-semibold">Theoretical Computer Science:</span> 
-          Used in analyzing <span className="text-yellow-400">average-case complexity</span> and developing new sorting techniques.
+          <span className="text-red-300 font-medium">Worst Case (O(n²)):</span> Happens when the pivot is always the smallest or largest element (e.g., sorted array).
         </li>
       </ul>
     </div>
 
-
-{/* gfg button link code */}
-
-{/* <div className="text-left my-6 p-4 border-l-4 border-blue-500 bg-gray-50 rounded-lg shadow-md">
-  <p className="text-lg text-gray-800 leading-relaxed">
-    Try it on 
-    <a href="https://www.geeksforgeeks.org/quick-sort/" target="_blank" rel="noopener noreferrer" 
-       className="text-blue-600 font-semibold hover:underline">
-       GfG Practice
-    </a>
-    <span className="inline-block ml-2">
-      🔗
-    </span>
-  </p>
-</div> */}
-
+    <div className="bg-gray-800 p-5 rounded-lg border-l-4 border-purple-500">
+      <h3 className="text-xl font-semibold text-purple-400 mb-1">📦 Auxiliary Space:</h3>
+      <p>
+        <span className="text-purple-300 font-medium">O(n)</span> – Due to the recursive call stack in the worst case.
+      </p>
     </div>
-  )
-}
+  </div>
+</div>
+
+
+{/* Advantages & disadvantages section */}
+<div className="bg-gradient-to-b from-gray-900 via-black to-gray-950 text-white p-8 rounded-2xl shadow-xl mt-10 space-y-8">
+
+  <h2 className="text-4xl font-bold text-center text-green-400">Advantages & Disadvantages of Quick Sort</h2>
+
+  {/* Advantages Section */}
+  <div className="bg-gray-800 p-6 rounded-xl border-l-4 border-green-500">
+    <h3 className="text-2xl font-semibold text-green-300 mb-3">✅ Advantages of Quick Sort</h3>
+    <ul className="list-disc list-inside ml-4 space-y-2 text-gray-200">
+      <li>It is a divide-and-conquer algorithm that simplifies problem-solving.</li>
+      <li>Efficient on large datasets.</li>
+      <li>Requires low memory overhead.</li>
+      <li>Cache-friendly as it operates on the same array without auxiliary arrays.</li>
+      <li>Fastest general-purpose sorting algorithm when stability is not required.</li>
+      <li>Tail-recursive, allowing for tail-call optimizations.</li>
+    </ul>
+  </div>
+
+  {/* Disadvantages Section */}
+  <div className="bg-gray-800 p-6 rounded-xl border-l-4 border-red-500">
+    <h3 className="text-2xl font-semibold text-red-300 mb-3">⚠️ Disadvantages of Quick Sort</h3>
+    <ul className="list-disc list-inside ml-4 space-y-2 text-gray-200">
+      <li>Worst-case time complexity is <span className="text-red-400 font-medium">O(n²)</span> if the pivot is poorly chosen.</li>
+      <li>Not ideal for small datasets.</li>
+      <li>It is <span className="text-yellow-400 font-medium">not a stable sort</span>, so equal elements might not retain their original relative order.</li>
+    </ul>
+  </div>
+</div>
+
+{/* Applications of Quick Sort */}
+<div className="bg-gradient-to-br from-slate-900 via-black to-gray-950 text-white p-8 rounded-2xl shadow-xl mt-10 space-y-6">
+
+  <h2 className="text-4xl font-bold text-center text-blue-400">📌 Applications of Quick Sort</h2>
+
+  <ul className="list-disc list-inside space-y-4 text-lg text-gray-200 ml-4">
+    <li>
+      <span className="text-blue-300 font-semibold">Efficient for sorting large datasets</span> with 
+      <span className="text-green-400 font-medium"> O(n log n)</span> average-case time complexity.
+    </li>
+    <li>
+      Commonly used in <span className="text-yellow-300 font-semibold">partitioning problems</span> like 
+      finding the <span className="text-teal-400 font-semibold">k<sup>th</sup> smallest element</span> or dividing arrays by pivot.
+    </li>
+    <li>
+      Plays a key role in <span className="text-purple-400 font-semibold">randomized algorithms</span>, offering 
+      better average performance over deterministic methods.
+    </li>
+    <li>
+      Used in <span className="text-pink-400 font-semibold">cryptography</span> for generating 
+      <span className="text-yellow-400 font-medium"> random permutations</span> and encryption keys.
+    </li>
+    <li>
+      The <span className="text-green-400 font-semibold">partitioning step can be parallelized</span> for better performance on 
+      multi-core or distributed systems.
+    </li>
+    <li>
+      Valuable in <span className="text-orange-400 font-semibold">theoretical computer science</span> for analyzing 
+      <span className="text-green-300 font-medium"> average-case complexity</span> and developing new algorithmic techniques.
+    </li>
+  </ul>
+</div>
+    </div>
+  );
+};

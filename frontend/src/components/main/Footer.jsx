@@ -50,7 +50,7 @@ const Footer = () => {
             </li>
 
             <li className="hover:text-green-600 transition-all duration-300 cursor-pointer">
-            <a href="tel:+917999482004">Phone: +91 7999482004</a>
+            <a href="tel:+917999482004">Phone: +91 8225850368</a>
             </li>
             {/* <li className="hover:text-green-600 transition-all duration-300 cursor-pointer">Live Chat Support</li> */}
           </ul>
