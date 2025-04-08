@@ -15,7 +15,7 @@ export const Quick = () => {
   }, []);
 
   const generateNewArray = () => {
-    const newArr = Array.from({ length: 40 }, () => Math.floor(Math.random() * 300) + 50);
+    const newArr = Array.from({ length: 25}, () => Math.floor(Math.random() *100 ) + 5); //
     setArray(newArr);
     setActiveIndices([]);
     setPivotIndex(null);

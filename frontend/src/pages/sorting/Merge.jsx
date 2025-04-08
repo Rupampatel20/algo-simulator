@@ -21,7 +21,7 @@ export const Merge = () => {
   }, []);
 
   const generateNewArray = () => {
-    const newArr = Array.from({ length: 40 }, () => Math.floor(Math.random() * 300) + 50);
+    const newArr = Array.from({ length: 25 }, () => Math.floor(Math.random() * 100) + 5);
     setArray(newArr);
     setActiveIndices([]);
   };
@@ -351,32 +351,8 @@ export const Merge = () => {
       </ul>
     </div>
   </div>
-</div>
+</div> 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
     </div>
   );
 };
