@@ -285,9 +285,9 @@ export const Bubble = () => {
   return (
     <div className="mt-24 px-4 md:px-24 flex flex-col gap-10">
       {/* Title */}
-      <h1 className="text-center text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent py-6 tracking-tight transition-transform hover:scale-105 hover:drop-shadow-[0_5px_25px_rgba(100,100,255,0.4)]">
-        Bubble Sort Algorithm
-      </h1>
+      <h1 className="text-center text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent px-4 py-6 leading-tight tracking-tight transition-transform duration-300 ease-in-out transform hover:scale-105 hover:drop-shadow-[0_5px_25px_rgba(100,100,255,0.4)]">
+  Bubble Sort Algorithm
+</h1>
 
       {/* Controls */}
       <div className="flex flex-wrap items-center justify-center gap-3 mb-6">
