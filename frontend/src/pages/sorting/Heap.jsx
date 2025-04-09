@@ -206,9 +206,10 @@ export const Heap = () => {
         {/* example sextion */}
 
         <div>
-          <h2 className="text-2xl font-semibold text-black mb-4">
-          Example:
-          </h2>
+        <h2 className="text-3xl font-bold text-orange-300 text-center my-4">
+          Example
+        </h2>
+
           <p className="text-lg text-gray-200 bg-gradient-to-r from-gray-800 via-gray-900 to-black p-6 rounded-lg shadow-lg border border-gray-700">
           Let us look at an example array to understand the sort algorithm better −
           12,	3,	9,	14,	10,	18,	8,	23
@@ -218,6 +219,10 @@ export const Heap = () => {
         {/* first step */}
 
         <div class="p-4 bg-white shadow-md rounded-2xl text-center max-w-2xl mx-auto mt-6">
+        <h3 className="text-xl font-bold text-blue-400 mt-6 mb-2 text-center">
+  Step 1:
+</h3>
+
         <p class="text-lg font-medium text-gray-800 mb-4">
           Building a heap using the <span class="font-semibold text-blue-600">BUILD-MAX-HEAP</span> algorithm from the input array −
         </p>
@@ -227,16 +232,16 @@ export const Heap = () => {
            <img src={HEAP_SORT_1} alt="Heap Sort Diagram" className="max-w-full h-auto rounded-lg shadow-lg" />
           </div>
 
-          {/* second step */}
+          {/* second step
 
         <div className="p-4 bg-white shadow-md rounded-2xl text-center max-w-2xl mx-auto mt-6">
           <p className="text-lg font-medium text-gray-800 mb-4">
           Rearrange the obtained binary tree by exchanging the nodes such that a <span className="font-semibold text-blue-600">heap data structure</span> is formed.
           </p>
-        </div>
+        </div> */}
 
         {/* image section */}
-        <div className="flex justify-center mt-8">
+        {/* <div className="flex justify-center mt-8">
           <img src={HEAP_SORT_2} alt="Heap Sort Diagram" className="max-w-full h-auto rounded-lg shadow-lg" />
         </div>
 
@@ -262,7 +267,102 @@ export const Heap = () => {
 
         <div className="flex justify-center mt-8">
           <img src={HEAP_SORT_8} alt="Heap Sort Diagram" className="max-w-full h-auto rounded-lg shadow-lg" />
-        </div>
+        </div> */}
+
+
+
+{/* second step */}
+<div className="p-4 bg-white shadow-md rounded-2xl text-center max-w-2xl mx-auto mt-6">
+<h3 className="text-xl font-bold text-blue-400 mt-6 mb-2 text-center">
+  Step 2:
+</h3>
+
+  
+  <p className="text-lg font-medium text-gray-800 mb-4">
+    Apply max-heapify on all non-leaf nodes. The largest value bubbles up to the top (root) of the heap.
+  </p>
+</div>
+<div className="flex justify-center mt-8">
+  <img src={HEAP_SORT_2} alt="Max Heapify Step" className="max-w-full h-auto rounded-lg shadow-lg" />
+</div>
+
+{/* third step */}
+<div className="p-4 bg-white shadow-md rounded-2xl text-center max-w-2xl mx-auto mt-6">
+<h3 className="text-xl font-bold text-blue-400 mt-6 mb-2 text-center">
+  Step 3:
+</h3>
+  <p className="text-lg font-medium text-gray-800 mb-4">
+    Swap the root (largest value) with the last element of the heap.
+  </p>
+</div>
+<div className="flex justify-center mt-8">
+  <img src={HEAP_SORT_3} alt="Swap with last element" className="max-w-full h-auto rounded-lg shadow-lg" />
+</div>
+
+{/* fourth step */}
+<div className="p-4 bg-white shadow-md rounded-2xl text-center max-w-2xl mx-auto mt-6">
+<h3 className="text-xl font-bold text-blue-400 mt-6 mb-2 text-center">
+  Step 4:
+</h3>
+  <p className="text-lg font-medium text-gray-800 mb-4">
+    Reduce the heap size by one and apply max-heapify on the new root.
+  </p>
+</div>
+<div className="flex justify-center mt-8">
+  <img src={HEAP_SORT_4} alt="Heapify Reduced Heap" className="max-w-full h-auto rounded-lg shadow-lg" />
+</div>
+
+{/* fifth step */}
+<div className="p-4 bg-white shadow-md rounded-2xl text-center max-w-2xl mx-auto mt-6">
+<h3 className="text-xl font-bold text-blue-400 mt-6 mb-2 text-center">
+  Step 5:
+</h3>
+  <p className="text-lg font-medium text-gray-800 mb-4">
+    Repeat the process: swap root with the last unsorted element and heapify again.
+  </p>
+</div>
+<div className="flex justify-center mt-8">
+  <img src={HEAP_SORT_5} alt="Repeat Swap and Heapify" className="max-w-full h-auto rounded-lg shadow-lg" />
+</div>
+
+{/* sixth step */}
+<div className="p-4 bg-white shadow-md rounded-2xl text-center max-w-2xl mx-auto mt-6">
+<h3 className="text-xl font-bold text-blue-400 mt-6 mb-2 text-center">
+  Step 6:
+</h3>
+  <p className="text-lg font-medium text-gray-800 mb-4">
+    Continue until all elements are sorted in ascending order.
+  </p>
+</div>
+<div className="flex justify-center mt-8">
+  <img src={HEAP_SORT_6} alt="Continue Sorting" className="max-w-full h-auto rounded-lg shadow-lg" />
+</div>
+
+{/* seventh step */}
+<div className="p-4 bg-white shadow-md rounded-2xl text-center max-w-2xl mx-auto mt-6">
+<h3 className="text-xl font-bold text-blue-400 mt-6 mb-2 text-center">
+  Step 7:
+</h3>
+  <p className="text-lg font-medium text-gray-800 mb-4">
+    The heap is now empty, and the array is fully sorted.
+  </p>
+</div>
+<div className="flex justify-center mt-8">
+  <img src={HEAP_SORT_7} alt="Heap Empty" className="max-w-full h-auto rounded-lg shadow-lg" />
+</div>
+
+{/* final visualization */}
+<div className="p-4 bg-white shadow-md rounded-2xl text-center max-w-2xl mx-auto mt-6">
+<h3 className="text-xl font-bold text-blue-400 mt-6 mb-2 text-center">
+  Step 8:
+</h3>
+  <p className="text-lg font-medium text-gray-800 mb-4">
+    Final sorted array shown using heap visualization.
+  </p>
+</div>
+<div className="flex justify-center mt-8 mb-12">
+  <img src={HEAP_SORT_8} alt="Final Sorted Array" className="max-w-full h-auto rounded-lg shadow-lg" />
+</div>
 
       {/*   Important Points about Heap Sort */}
 

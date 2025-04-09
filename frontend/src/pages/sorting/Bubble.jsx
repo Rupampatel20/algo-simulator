@@ -338,6 +338,22 @@ export const Bubble = () => {
         </div>
       </div>
 
+      {/* Color Legend */}
+<div className="flex justify-center gap-6 items-center mb-4 flex-wrap">
+  <div className="flex items-center gap-2">
+    <div className="w-6 h-6 bg-blue-500 rounded-sm"></div>
+    <span className="text-sm text-gray-700">Unsorted Element</span>
+  </div>
+  <div className="flex items-center gap-2">
+    <div className="w-6 h-6 bg-red-500 rounded-sm"></div>
+    <span className="text-sm text-gray-700">Comparing Elements</span>
+  </div>
+  <div className="flex items-center gap-2">
+    <div className="w-6 h-6 bg-green-500 rounded-sm"></div>
+    <span className="text-sm text-gray-700">Sorted Element</span>
+  </div>
+</div>
+
       {/* Array Bars */}
       <div className="flex items-end justify-center gap-1 h-64 border p-2 bg-gray-50 rounded">
         {array.map((value, idx) => {
