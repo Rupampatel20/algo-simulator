@@ -343,6 +343,13 @@ export const Quick = () => {
     </li>
   </ul>
 </div>
+
+  {/* Footer Section */}
+  <div className="flex justify-center items-center p-6">
+          <p className="text-gray-400 text-sm">
+            &copy; 2023 Sorting Visualizer. All rights reserved.
+          </p>
+        </div>
     </div>
   );
 };

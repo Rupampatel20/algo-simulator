@@ -1,5 +1,9 @@
 import React, {useState} from "react";
-import LINEAR_SEARCH_IMG from "../../assets/Screenshot-2023-03-07-101704.png";
+import LINEAR_SEARCH_IMG_1 from "../../assets/Linear-search-algorithm-1.webp";
+import LINEAR_SEARCH_IMG_2 from "../../assets/Linear-search-algorithm-2.webp";
+import LINEAR_SEARCH_IMG_3 from "../../assets/Linear-search-algorithm-3.webp";
+
+
 
 export const Linear = () => {
   const [array] = useState([10, 50, 30, 70, 80, 20, 90, 40]); // Updated Array
@@ -19,10 +23,21 @@ export const Linear = () => {
     <div className='mt-24 px-24 flex flex-col gap-7'> 
       
       {/* linearsearch heading code... */}
-
-    <h1 className="text-center text-7xl font-extrabold bg-gradient-to-r from-blue-500 via-teal-400 to-purple-600 bg-clip-text text-transparent relative inline-block transition-all duration-300 ease-in-out hover:scale-105 hover:drop-shadow-lg after:content-[''] after:absolute after:left-0 after:bottom-[-5px] after:w-full after:h-1 after:bg-gradient-to-r after:from-blue-500 after:via-teal-400 after:to-purple-600 after:rounded-full after:transition-all after:duration-300 after:ease-in-out">
-      LINEAR SEARCH
+      <h1 className="text-center text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent px-4 py-6 leading-tight tracking-tight transition-transform duration-300 ease-in-out transform hover:scale-105 hover:drop-shadow-[0_5px_25px_rgba(100,100,255,0.4)]">
+        Linear Search Algorithm
     </h1>
+
+    {/* linearsearch description code... */}
+
+    <div className="text-xl text-gray-200 bg-gradient-to-r from-gray-800 via-gray-900 to-black p-6 rounded-lg shadow-lg border border-gray-700 leading-relaxed tracking-wide">
+    <p>
+    <span className="text-yellow-400 font-semibold">Linear Search</span> is a 
+    searching algorithm where the <span className="text-yellow-300">list or dataset</span> 
+    is traversed from one end to find the <span className="text-yellow-300">desired value</span>.
+    </p>
+    </div>
+
+
 
 {/* Input & Search Button */}
 <div className="flex flex-col items-center justify-center text-center mb-4">
@@ -47,146 +62,187 @@ export const Linear = () => {
   {result && <p className="mt-3 text-lg font-semibold">{result}</p>}
 </div>
 
-    {/* linearsearch description code... */}
+    
 
-    <div className="text-xl text-gray-200 bg-gradient-to-r from-gray-800 via-gray-900 to-black p-6 rounded-lg shadow-lg border border-gray-700 leading-relaxed tracking-wide">
-  <p>
-    <span className="text-yellow-400 font-semibold">Linear Search</span> is a 
-    searching algorithm where the <span className="text-yellow-300">list or dataset</span> 
-    is traversed from one end to find the <span className="text-yellow-300">desired value</span>.
+
+
+{/* Explanation Section for Linear Search */}
+<div className="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white p-8 rounded-xl shadow-lg space-y-6">
+  <h2 className="text-3xl font-bold text-center text-green-300">
+    How does Linear Search Algorithm work?
+  </h2>
+  <ul className="list-decimal list-inside space-y-2 text-lg pl-4">
+    <li>
+      <span className="text-yellow-300 font-medium">Start from First Element:</span> Begin checking from the first element in the array.
+    </li>
+    <li>
+      <span className="text-yellow-300 font-medium">Compare with Target:</span> Compare each element with the target value <code>x</code>.
+    </li>
+    <li>
+      <span className="text-yellow-300 font-medium">Return Index if Found:</span> If a match is found, return the current index.
+    </li>
+    <li>
+      <span className="text-yellow-300 font-medium">Return -1 if Not Found:</span> If the loop completes and no match is found, return -1.
+    </li>
+  </ul>
+
+  <div className="text-lg text-white space-y-3">
+    <h3 className="text-2xl text-orange-400 font-semibold pt-4">Test Cases:</h3>
+    <div className="bg-gray-800 p-4 rounded-lg shadow-md">
+      <p><span className="text-blue-300 font-semibold">Input:</span> arr = [1, 2, 3, 4], x = 3</p>
+      <p><span className="text-purple-300 font-semibold">Output:</span> 2</p>
+      <p className="italic text-gray-400">Explanation: Element 3 is present at index 2.</p>
+    </div>
+    <div className="bg-gray-800 p-4 rounded-lg shadow-md">
+      <p><span className="text-blue-300 font-semibold">Input:</span> arr = [10, 8, 30, 4, 5], x = 5</p>
+      <p><span className="text-purple-300 font-semibold">Output:</span> 4</p>
+      <p className="italic text-gray-400">Explanation: Element 5 is at index 4.</p>
+    </div>
+    <div className="bg-gray-800 p-4 rounded-lg shadow-md">
+      <p><span className="text-blue-300 font-semibold">Input:</span> arr = [10, 8, 30], x = 6</p>
+      <p><span className="text-purple-300 font-semibold">Output:</span> -1</p>
+      <p className="italic text-gray-400">Explanation: Element 6 is not present in the array.</p>
+    </div>
+  </div>
+
+  <p className="text-lg text-gray-400 italic">
+    Linear Search is simple and works well for small or unsorted arrays. Time complexity is O(n).
   </p>
+</div>
+
+
+<div className="text-xl text-gray-200 bg-gradient-to-r from-gray-800 via-gray-900 to-black p-6 rounded-lg shadow-lg border border-gray-700">
+  Linear Search, also known as sequential search, is a method for finding a target value within a list. 
+  It sequentially checks each element of the array until a match is found or the whole array is traversed.
+  <br /><br />
+  In Linear Search, we iterate over all the elements of the array and check if the current element is equal to the target element. 
+  If we find any element equal to the target, we return its index. Otherwise, if no element matches the target, we return <code>-1</code> indicating it’s not found.
+  <br /><br />
+  <span className="text-green-400 font-semibold">Example:</span> <br />
+  Consider the array <code>arr[] = {"{"}10, 50, 30, 70, 80, 20, 90, 40{"}"}</code> and <code>key = 30</code>.<br />
+  We iterate from the beginning and compare each value with 30. At index <code>2</code>, we find the key. So the output is <code>2</code>.
 </div>
 
 {/* image section */}
 
-<div className="flex justify-center items-center p-6">
+          <div className="flex justify-center items-center p-6">
           <img 
-            src={LINEAR_SEARCH_IMG} 
+            src={LINEAR_SEARCH_IMG_1} 
             alt="bINARY SEARCH Visualization" 
             className="max-w-full h-auto rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:scale-105" />
           </div>
 
+          <div className="flex justify-center items-center p-6">
+          <img 
+            src={LINEAR_SEARCH_IMG_2} 
+            alt="bINARY SEARCH Visualization" 
+            className="max-w-full h-auto rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:scale-105" />
+          </div>
 
-          <div className="text-xl text-gray-200 bg-gradient-to-r from-gray-800 via-gray-900 to-black p-6 rounded-lg shadow-lg border border-gray-700 leading-relaxed tracking-wide">
-  <p>
-    <span className="text-yellow-400 font-semibold">Properties of Linear Search:</span>
-  </p>
-  <ul className="list-disc list-inside mt-2">
-    <li>
-      <span className="text-yellow-300 font-semibold">Time Complexity:</span> 
-      The worst-case time complexity of linear search is <span className="text-blue-400">O(N)</span>, where 
-      <span className="text-yellow-300"> N</span> is the size of the array.
-    </li>
-    <li>
-      <span className="text-yellow-300 font-semibold">Space Complexity:</span> 
-      Linear search requires a <span className="text-blue-400">constant amount of memory</span> to run.
-    </li>
-    <li>
-      <span className="text-yellow-300 font-semibold">Efficiency:</span> 
-      Linear search is <span className="text-blue-400">efficient for small datasets</span> but becomes 
-      <span className="text-red-400"> inefficient for larger datasets</span>. 
-      In practice, linear search is often used as a subroutine in more complex algorithms.
-    </li>
-    <li>
-      <span className="text-yellow-300 font-semibold">Implementation:</span> 
-      Linear search can be easily implemented using a <span className="text-blue-400">loop</span>, 
-      with each iteration comparing the <span className="text-yellow-300">target value</span> 
-      to the current element of the array.
-    </li>
-  </ul>
-</div>
+          <div className="flex justify-center items-center p-6">
+          <img 
+            src={LINEAR_SEARCH_IMG_3} 
+            alt="bINARY SEARCH Visualization" 
+            className="max-w-full h-auto rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:scale-105" />
+          </div>
 
-<div className="text-xl text-gray-200 bg-gradient-to-r from-gray-800 via-gray-900 to-black p-6 rounded-lg shadow-lg border border-gray-700 leading-relaxed tracking-wide">
-  <p>
-    <span className="text-yellow-400 font-semibold">Application of Linear Search:</span>
-  </p>
-  <p className="mt-2">
-    Linear search has several practical applications in computer science and beyond. Here are some examples:
-  </p>
-  <ul className="list-disc list-inside mt-2">
-    <li>
-      <span className="text-yellow-300 font-semibold">Phonebook Search:</span> 
-      Linear search can be used to search through a phonebook to find a person’s name, given their phone number.
-    </li>
-    <li>
-      <span className="text-yellow-300 font-semibold">Spell Checkers:</span> 
-      The algorithm compares each word in the document to a dictionary of correctly spelled words until a match is found.
-    </li>
-    <li>
-      <span className="text-yellow-300 font-semibold">Finding Minimum and Maximum Values:</span> 
-      Linear search can be used to find the minimum and maximum values in an array or list.
-    </li>
-    <li>
-      <span className="text-yellow-300 font-semibold">Searching Through Unsorted Data:</span> 
-      Linear search is useful for searching through <span className="text-blue-400">unsorted data</span>.
-    </li>
-  </ul>
+{/* Time and Space Complexity of Linear Search Algorithm */}
+
+    <div className="text-xl text-gray-200 bg-gradient-to-r from-gray-900 via-gray-800 to-black p-6 rounded-lg shadow-lg border border-gray-700 space-y-4">
+  <h2 className="text-2xl text-orange-300 font-bold">Time and Space Complexity of Linear Search Algorithm:</h2>
+
+  <div>
+    <span className="text-green-400 font-semibold">Time Complexity:</span>
+    <ul className="list-disc list-inside pl-4 space-y-2 mt-2">
+      <li>
+        <span className="text-yellow-300 font-medium">Best Case:</span> When the key is found at the first index.<br />
+        <span className="text-gray-300">→ Time Complexity: <code>O(1)</code></span>
+      </li>
+      <li>
+        <span className="text-yellow-300 font-medium">Worst Case:</span> When the key is at the last index or not present at all.<br />
+        <span className="text-gray-300">→ Time Complexity: <code>O(N)</code>, where <code>N</code> is the size of the list.</span>
+      </li>
+      <li>
+        <span className="text-yellow-300 font-medium">Average Case:</span><br />
+        <span className="text-gray-300">→ Time Complexity: <code>O(N)</code></span>
+      </li>
+    </ul>
+  </div>
+
+  <div>
+    <span className="text-green-400 font-semibold">Auxiliary Space:</span><br />
+    <span className="text-gray-300">→ <code>O(1)</code>, since only one loop variable is used and no additional space is required.</span>
+  </div>
 </div>
 
 
-<div className="text-xl text-gray-200 bg-gradient-to-r from-gray-800 via-gray-900 to-black p-6 rounded-lg shadow-lg border border-gray-700 leading-relaxed tracking-wide">
-  <p>
-    <span className="text-yellow-400 font-semibold">Advantages of Linear Search:</span>
-  </p>
-  <ul className="list-disc list-inside mt-2">
-    <li>
-      <span className="text-yellow-300 font-semibold">Simplicity:</span> 
-      Linear search is a very simple algorithm to understand and implement.
-    </li>
-    <li>
-      <span className="text-yellow-300 font-semibold">Works with Unsorted Data:</span> 
-      Linear search works well with unsorted data. It does not require any pre-processing or sorting before performing the search.
-    </li>
-    <li>
-      <span className="text-yellow-300 font-semibold">Low Memory Usage:</span> 
-      Linear search only requires a small amount of memory to store the index of the current element being searched.
-    </li>
-    <li>
-      <span className="text-yellow-300 font-semibold">Easy to Debug:</span> 
-      Because linear search is a simple algorithm, it is easy to debug and troubleshoot any issues that may arise.
-    </li>
-  </ul>
+{/* Applications of Linear Search Algorithm: */}
 
-  <p className="mt-4">
-    <span className="text-red-400 font-semibold">Disadvantages of Linear Search:</span>
-  </p>
-  <ul className="list-disc list-inside mt-2">
+<div className="text-xl text-gray-200 bg-gradient-to-r from-gray-800 via-gray-900 to-black p-6 rounded-lg shadow-lg border border-gray-700 space-y-4">
+  <h2 className="text-2xl text-orange-300 font-bold">Applications of Linear Search Algorithm:</h2>
+
+  <ul className="list-disc list-inside pl-4 space-y-2 text-gray-300">
     <li>
-      <span className="text-yellow-300 font-semibold">Inefficient for Large Datasets:</span> 
-      As the dataset size grows, the time taken by linear search increases proportionally.
+      <span className="text-yellow-300 font-medium">Unsorted Lists:</span> Linear search is ideal when dealing with unsorted arrays or lists, as it doesn’t require sorted data to function.
     </li>
     <li>
-      <span className="text-yellow-300 font-semibold">Limited Applicability:</span> 
-      Linear search is only suitable for datasets that are not too large or complex.
+      <span className="text-yellow-300 font-medium">Small Data Sets:</span> For small datasets, linear search is more efficient than binary search because of its minimal setup and simplicity.
     </li>
     <li>
-      <span className="text-yellow-300 font-semibold">No Early Termination:</span> 
-      Linear search does not have a mechanism to terminate early once the target element is found.
+      <span className="text-yellow-300 font-medium">Searching Linked Lists:</span> In linked list structures, linear search is commonly used because direct access to elements is not possible, so each node is checked one by one.
     </li>
     <li>
-      <span className="text-yellow-300 font-semibold">Inefficient for Sorted Data:</span> 
-      When the data is already sorted, linear search is inefficient as it checks each element one by one, even after passing the target element.
+      <span className="text-yellow-300 font-medium">Simple Implementation:</span> Linear search is easier to understand and implement, making it ideal for beginners or straightforward search problems.
     </li>
   </ul>
 </div>
 
 
-{/* gfg button link code */}
+{/* Advantages of Linear Search Algorithm: */}
+<div className="text-xl text-gray-200 bg-gradient-to-r from-gray-800 via-gray-900 to-black p-6 rounded-lg shadow-lg border border-gray-700 space-y-4">
+  <h2 className="text-2xl text-orange-300 font-bold">Advantages of Linear Search Algorithm:</h2>
 
-{/* <div className="text-left my-6 p-4 border-l-4 border-blue-500 bg-gray-50 rounded-lg shadow-md">
-  <p className="text-lg text-gray-800 leading-relaxed">
-    Try it on 
-    <a href="https://www.geeksforgeeks.org/linear-search/" target="_blank" rel="noopener noreferrer" 
-       className="text-blue-600 font-semibold hover:underline">
-       GfG Practice
-    </a>
-    <span className="inline-block ml-2">
-      🔗
-    </span>
-  </p>
-</div> */}
+  <ul className="list-disc list-inside pl-4 space-y-2 text-gray-300">
+    <li>
+      <span className="text-yellow-300 font-medium">No Sorting Required:</span> Linear search can be applied to both sorted and unsorted arrays, making it highly flexible.
+    </li>
+    <li>
+      <span className="text-yellow-300 font-medium">Versatile Data Types:</span> It can be used with arrays of any data type including integers, strings, or custom objects.
+    </li>
+    <li>
+      <span className="text-yellow-300 font-medium">No Extra Memory:</span> It does not require any additional memory allocation, as it works directly with the input array.
+    </li>
+    <li>
+      <span className="text-yellow-300 font-medium">Ideal for Small Datasets:</span> Linear search performs well on small datasets where the overhead of more complex algorithms isn’t justified.
+    </li>
+  </ul>
+</div>
 
+{/* Disadvantages of Linear Search Algorithm: */}
+
+<div className="text-xl text-gray-200 bg-gradient-to-r from-gray-800 via-gray-900 to-black p-6 rounded-lg shadow-lg border border-gray-700 space-y-4">
+  <h2 className="text-2xl text-orange-300 font-bold">Disadvantages of Linear Search Algorithm:</h2>
+
+  <ul className="list-disc list-inside pl-4 space-y-2 text-gray-300">
+    <li>
+      <span className="text-red-400 font-medium">Slower for Large Datasets:</span> Linear search has a time complexity of O(N), making it inefficient for large arrays or datasets.
+    </li>
+    <li>
+      <span className="text-red-400 font-medium">Not Optimal:</span> Linear search is not suitable when performance is critical, especially if faster algorithms like Binary Search can be used on sorted data.
+    </li>
+  </ul>
+</div>
+
+
+{/* Footer Section */}
+<div className="flex justify-center items-center p-6">
+          <p className="text-gray-400 text-sm">
+            &copy; 2023 Sorting Visualizer. All rights reserved.
+          </p>
+        </div>
     
     </div>
   )
 }
+
+

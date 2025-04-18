@@ -1,6 +1,7 @@
 import React from "react";
 import { FaFacebook, FaTwitter, FaLinkedin, FaGithub, FaInstagram } from "react-icons/fa";
 
+
 const Footer = () => {
   return (
     <footer className="bg-green-200 text-gray-900 pt-10 pb-6 px-6 md:px-20 relative overflow-hidden">
@@ -56,38 +57,6 @@ const Footer = () => {
           </ul>
         </div>
       </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      
 
       {/* Social Media & Policies */}
       <div className="text-center mt-10 relative z-10">

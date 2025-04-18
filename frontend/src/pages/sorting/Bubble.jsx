@@ -286,8 +286,12 @@ export const Bubble = () => {
     <div className="mt-24 px-4 md:px-24 flex flex-col gap-10">
       {/* Title */}
       <h1 className="text-center text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent px-4 py-6 leading-tight tracking-tight transition-transform duration-300 ease-in-out transform hover:scale-105 hover:drop-shadow-[0_5px_25px_rgba(100,100,255,0.4)]">
-  Bubble Sort Algorithm
-</h1>
+      Bubble Sort Algorithm
+      </h1>
+
+      <div className="text-xl text-gray-200 bg-gradient-to-r from-gray-800 via-gray-900 to-black p-6 rounded-lg shadow-lg border border-gray-700">
+      Bubble Sort is the simplest sorting algorithm that works by repeatedly swapping the adjacent elements if they are in the wrong order. This algorithm is not suitable for large data sets as its average and worst-case time complexity are quite high.
+      </div>
 
       {/* Controls */}
       <div className="flex flex-wrap items-center justify-center gap-3 mb-6">
@@ -378,37 +382,30 @@ export const Bubble = () => {
         })}
       </div>
 
-      {/* Explanation */}
-      <div className="p-6 bg-white rounded-xl shadow-md max-w-4xl mx-auto mt-12">
-        <h2 className="text-2xl font-bold text-purple-700 mb-4">🔁 Bubble Sort Explanation</h2>
-
-        <p className="mb-4 text-gray-700">
-          <strong>Bubble Sort</strong> is a simple sorting algorithm that works by repeatedly
-          <span className="text-blue-600 font-semibold"> swapping adjacent elements</span> if they are in the wrong order.
-        </p>
-
-        <p className="mb-4 text-gray-700">
-          This algorithm is <span className="text-red-600 font-semibold">not suitable for large data sets</span> due to its high time complexity.
-        </p>
-
-        <h3 className="text-xl font-semibold text-gray-800 mb-2">📌 How It Works:</h3>
-        <ul className="list-disc pl-6 text-gray-700 space-y-2">
-          <li>Multiple passes are used to sort the array.</li>
-          <li>After the <strong>first pass</strong>, the <span className="text-green-600">largest element moves to the end</span>.</li>
-          <li>This continues, moving the next largest to its correct position in each pass.</li>
-          <li>Each pass compares adjacent elements and swaps if needed.</li>
-        </ul>
-
-        <div className="mt-6 bg-gray-100 p-4 rounded-md text-sm text-gray-800">
-          <h4 className="font-semibold text-gray-900 mb-2">🔧 Time Complexity:</h4>
-          <ul className="list-disc pl-5 space-y-1">
-            <li><strong>Best Case:</strong> O(n) — already sorted</li>
-            <li><strong>Average Case:</strong> O(n²)</li>
-            <li><strong>Worst Case:</strong> O(n²)</li>
-            <li><strong>Space Complexity:</strong> O(1) — In-place</li>
-          </ul>
-        </div>
-      </div>
+    {/* Explanation */}
+     
+<div className="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white p-8 rounded-xl shadow-lg space-y-6">
+  <h2 className="text-3xl font-bold text-center text-orange-300">
+    How does Bubble Sort Algorithm work?
+  </h2>
+  <ul className="list-decimal list-inside space-y-2 text-lg pl-4">
+    <li>
+      <span className="text-yellow-300 font-medium">Multiple Passes:</span> The array is sorted using multiple passes. Each pass pushes the next largest element to its correct position at the end.
+    </li>
+    <li>
+      <span className="text-yellow-300 font-medium">Compare & Swap:</span> In each pass, we compare adjacent elements. If the left element is larger than the right, we swap them.
+    </li>
+    <li>
+      <span className="text-yellow-300 font-medium">Ignore Sorted Part:</span> After every pass, the largest elements are placed at the end, so we ignore them in the next pass.
+    </li>
+    <li>
+      <span className="text-yellow-300 font-medium">k Passes:</span> After k passes, the k largest elements are at the last k positions in sorted order.
+    </li>
+  </ul>
+  <p className="text-lg text-gray-400 italic">
+    Bubble Sort is simple but inefficient for large datasets. It has a worst-case time complexity of O(n²).
+  </p>
+</div>
 
       {/* Images */}
       {[BUBBLE_SORT_1, BUBBLE_SORT_2, BUBBLE_SORT_3].map((src, i) => (
@@ -417,27 +414,62 @@ export const Bubble = () => {
         </div>
       ))}
 
-      {/* Advantages & Disadvantages */}
-      <div className="p-6 bg-white rounded-lg shadow-md max-w-4xl mx-auto my-8">
-        <h2 className="text-2xl font-bold text-purple-700 mb-4">📈 Advantages and Disadvantages of Bubble Sort</h2>
+      {/* Complexity Analysis */}
+<div className="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white p-8 rounded-xl shadow-lg space-y-6">
+  <h2 className="text-3xl font-bold text-center text-orange-300">
+    Complexity Analysis of Bubble Sort
+  </h2>
+  <ul className="list-disc list-inside space-y-2 text-lg pl-4">
+    <li>
+      <span className="text-yellow-300 font-medium">Time Complexity:</span> O(n²) in the worst and average cases due to the nested loops. Best case is O(n) when the array is already sorted.
+    </li>
+    <li>
+      <span className="text-yellow-300 font-medium">Auxiliary Space:</span> O(1) — Bubble Sort is an in-place sorting algorithm that doesn't require extra space.
+    </li>
+  </ul>
+  <p className="text-lg text-gray-400 italic">
+    Bubble Sort is not suitable for large datasets due to its high time complexity.
+  </p>
+</div>
+      {/* Advantages  */}
 
-        <div className="mb-6">
-          <h3 className="text-xl font-semibold text-green-600 mb-2">✅ Advantages:</h3>
-          <ul className="list-disc list-inside text-gray-800 space-y-2">
-            <li>Easy to understand and implement</li>
-            <li>Does not require additional memory (in-place)</li>
-            <li>Stable sorting algorithm</li>
-          </ul>
-        </div>
+      <div className="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white p-8 rounded-xl shadow-lg space-y-6">
+  <h2 className="text-3xl font-bold text-center text-green-400">
+    Advantages of Bubble Sort
+  </h2>
+  <ul className="list-disc list-inside space-y-2 text-lg pl-4">
+    <li>Bubble Sort is easy to understand and implement.</li>
+    <li>It does not require any additional memory space.</li>
+    <li>
+      It is a <span className="text-yellow-300 font-medium">stable</span> sorting algorithm — elements with the same key retain their relative order.
+    </li>
+  </ul>
+</div>
 
-        <div>
-          <h3 className="text-xl font-semibold text-red-600 mb-2">❌ Disadvantages:</h3>
-          <ul className="list-disc list-inside text-gray-800 space-y-2">
-            <li>Poor performance on large data sets — O(n²) complexity</li>
-            <li>Rarely used in real-world scenarios</li>
-          </ul>
+{/*  Disadvantages of Bubble Sort */}
+<div className="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white p-8 rounded-xl shadow-lg space-y-6">
+  <h2 className="text-3xl font-bold text-center text-red-400">
+    Disadvantages of Bubble Sort
+  </h2>
+  <ul className="list-disc list-inside space-y-2 text-lg pl-4">
+    <li>
+      Bubble Sort has a time complexity of 
+      <span className="text-yellow-300 font-medium"> O(n²) </span> 
+      which makes it inefficient for large datasets.
+    </li>
+    <li>
+      It has limited or almost no real-world applications — mostly used for academic purposes to demonstrate sorting concepts.
+    </li>
+  </ul>
+</div>
+
+  {/* Footer Section */}
+  <div className="flex justify-center items-center p-6">
+          <p className="text-gray-400 text-sm">
+            &copy; 2023 Sorting Visualizer. All rights reserved.
+          </p>
         </div>
-      </div>
+     
     </div>
   );
 };
