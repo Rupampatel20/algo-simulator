@@ -125,9 +125,15 @@ const HeroSection = () => {
               Get Started
             </button>
           </a>
-          <button className="px-6 py-3 border-2 border-white text-white font-semibold rounded-full shadow-lg transition-all duration-300 hover:bg-white hover:text-black hover:scale-105">
-            Visualize
-          </button>
+
+          <a href="visualization/MergeVisualize">
+            <button
+             className="px-6 py-3 border-2 border-white text-white font-semibold rounded-full shadow-lg transition-all duration-300 hover:bg-white hover:text-black hover:scale-105">
+              Explore Visualization
+            </button>
+          </a>
+
+          
         </div>
       </div>
     </section>

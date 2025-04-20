@@ -70,7 +70,7 @@
 // }
 
 
-// new code 
+// new code  6 cards with flipping effect and images code hai
 
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
