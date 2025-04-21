@@ -289,6 +289,24 @@ export const Bubble = () => {
       Bubble Sort Algorithm
       </h1>
 
+
+    {/* button of visualization */}
+
+    <div className="flex flex-col items-center justify-center text-center p-6">
+      <p className="text-lg md:text-xl mb-6 text-gray-800 font-medium max-w-3xl mx-auto">
+    Ready to learn Bubble Sort visually? Dive into our step-by-step interactive simulation now!
+      </p>
+
+      <a href="/visualization/BubbleVisualize">
+          <button
+      className="px-8 py-3 bg-yellow-300 text-black font-bold rounded-full shadow-md transition-all duration-300 hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 hover:text-white hover:scale-105 hover:shadow-xl"
+           >
+          Explore Visualization
+          </button>
+     </a>
+    </div>
+
+      {/* Description */}
       <div className="text-xl text-gray-200 bg-gradient-to-r from-gray-800 via-gray-900 to-black p-6 rounded-lg shadow-lg border border-gray-700">
       Bubble Sort is the simplest sorting algorithm that works by repeatedly swapping the adjacent elements if they are in the wrong order. This algorithm is not suitable for large data sets as its average and worst-case time complexity are quite high.
       </div>

@@ -78,6 +78,24 @@ export const Insertion = () => {
   Insertion Sort Algorithm
 </h1>
 
+{/* button of visualization */}
+
+<div className="flex flex-col items-center justify-center text-center p-6">
+      <p className="text-lg md:text-xl mb-6 text-gray-800 font-medium max-w-3xl mx-auto">
+    Ready to learn Insertion Sort visually? Dive into our step-by-step interactive simulation now!
+      </p>
+
+      <a href="/visualization/InsertionVisualize">
+          <button
+      className="px-8 py-3 bg-yellow-300 text-black font-bold rounded-full shadow-md transition-all duration-300 hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 hover:text-white hover:scale-105 hover:shadow-xl"
+           >
+          Explore Visualization
+          </button>
+     </a>
+    </div>
+
+    {/* description */}
+
   <div className="text-xl text-gray-200 bg-gradient-to-r from-gray-800 via-gray-900 to-black p-6 rounded-lg shadow-lg border border-gray-700">
   Insertion sort is a simple sorting algorithm that works by iteratively inserting each element of an unsorted list into its correct position in a sorted portion of the list. It is like sorting playing cards in your hands. You split the cards into two groups: the sorted cards and the unsorted cards. Then, you pick a card from the unsorted group and put it in the right place in the sorted group.
   </div>
