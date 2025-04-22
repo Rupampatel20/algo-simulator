@@ -460,7 +460,7 @@
 
 
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import * as d3 from 'd3';
 
 export const QuickVisualize = () => {
@@ -578,12 +578,12 @@ export const QuickVisualize = () => {
     }
   };
 
-  const getBarColor = (idx) => {
+  const getBarColor = useCallback((idx) => {
     if (pivotIndex === idx) return "red";
     if (activeIndices.includes(idx)) return "yellow";
     if (sortedIndices.includes(idx)) return "green";
     return "blue";
-  };
+  }, [pivotIndex, activeIndices, sortedIndices]);
 
   useEffect(() => {
     const svg = d3.select(svgRef.current);
@@ -643,7 +643,7 @@ export const QuickVisualize = () => {
       .attr("font-size", "14px")
       .attr("fill", "black")
       .text(d => d);
-  }, [array, activeIndices, pivotIndex, sortedIndices]);
+  }, [array, activeIndices, pivotIndex, sortedIndices, getBarColor]);
 
   return (
     <div className="min-h-screen w-full bg-gradient-to-br from-white to-orange-100 p-8">
