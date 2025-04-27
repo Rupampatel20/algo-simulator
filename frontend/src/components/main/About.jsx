@@ -1,6 +1,4 @@
 import React from "react";
-// import aboutImg1 from "../../assets/graph-4737109_1920.jpg";
-// import aboutImg2 from "../../assets/linear_search.gif";
 import aboutImg3 from "../../assets/sorting aboutus.png";
 
 const About = () => {
@@ -13,20 +11,12 @@ const About = () => {
       <div className="flex flex-col md:flex-row items-center gap-10">
         {/* Left Side - Images */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full md:w-1/2">
-          {/* <img
-            src={aboutImg1}
-            alt="Sorting Visualization"
-            className="rounded-lg shadow-lg hover:scale-105 hover:rotate-2 transition-transform duration-300"
-          /> */}
-          {/* <img
-            src={aboutImg2}
-            alt="Algorithm Demonstration"
-            className="rounded-lg shadow-lg hover:scale-105 hover:-rotate-2 transition-transform duration-300"
-          /> */}
+         
           <img
-            src={aboutImg3}
-            alt="User Interaction"
-            className="rounded-lg shadow-lg hover:scale-105 hover:rotate-2 transition-transform duration-300 sm:col-span-2"
+           src={aboutImg3}
+           alt="User Interaction"
+           className="rounded-lg shadow-lg transition-transform duration-300 sm:col-span-2 hover:scale-110 hover:-translate-y-2 hover:shadow-2xl"
+           
           />
         </div>
         
