@@ -23,6 +23,9 @@ import { BubbleVisualize } from "./pages/visualization/BubbleVisualize";
 import { InsertionVisualize } from "./pages/visualization/InsertionVisualize";
 import { SelectionVisualize } from "./pages/visualization/SelectionVisualize";
 import { BinaryVisualize } from "./pages/visualization/BinaryVisualize";
+import { LinearVisualize } from "./pages/visualization/LinearVisualize";
+
+import { Card } from "./pages/visualizationcard/Card";
 
 
 
@@ -75,11 +78,11 @@ const App = () => {
     //searching pages
     {
       path: "/searching/binary",
-      element: <Binary Search/>
+      element: <Binary/>
     },
     {
       path: "/searching/linear",
-      element: <Linear Search/>
+      element: <Linear/>
     },
 
     //visualization pages sorting
@@ -120,11 +123,35 @@ const App = () => {
       path: "/visualization/BinaryVisualize",
       element: <BinaryVisualize/>
     },
+    
+    {
+      path: "/visualization/LinearVisualize",
+      element: <LinearVisualize/>
+    },
+
+    //visualization card page
+    {
+      path: "/visualizationcard/Card",
+      element: <Card/>
+    },
+    
+    
 
     
+    
 
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   ])

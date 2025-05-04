@@ -129,7 +129,7 @@ const Footer = () => {
           <h2 className="text-lg font-bold text-gray-700 mb-4 hover:text-green-600 transition-all duration-300">Learn</h2>
           <ul className="space-y-2 text-gray-600">
             <li className="hover:text-green-600 transition-all duration-300 cursor-pointer">
-              <a target="_blank">How Visualization Works</a>
+              <a href="/visualizationcard/Card" target="_blank">How Visualization Works</a>
             </li>
           </ul>
         </div>
