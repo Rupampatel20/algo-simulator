@@ -247,3 +247,4 @@ export const BinaryVisualize = () => {
 };
 
 export default BinaryVisualize;
+
