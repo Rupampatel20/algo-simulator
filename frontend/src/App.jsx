@@ -24,11 +24,7 @@ import { InsertionVisualize } from "./pages/visualization/InsertionVisualize";
 import { SelectionVisualize } from "./pages/visualization/SelectionVisualize";
 import { BinaryVisualize } from "./pages/visualization/BinaryVisualize";
 import { LinearVisualize } from "./pages/visualization/LinearVisualize";
-
 import { Card } from "./pages/visualizationcard/Card";
-
-
-
 
 
 const App = () => {
@@ -136,24 +132,6 @@ const App = () => {
     },
     
     
-
-    
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   ])
   
   return (

@@ -1,5 +1,5 @@
 import React , {useState} from "react";
-import BINARY_SEARCH_IMG from "../../assets/binnary-search-.webp";
+import BINARY_SEARCH_IMG from "../../assets/binnary-search-.jpg";
 import BINARY_SEARCH_IMG_1 from "../../assets/Binary-Search-1.jpg";
 import BINARY_SEARCH_IMG_2 from "../../assets/Binary-Search-2.jpg";
 import BINARY_SEARCH_IMG_3 from "../../assets/Binary-Search-3.jpg";
