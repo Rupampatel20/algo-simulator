@@ -334,7 +334,6 @@ export const MergeVisualize = () => {
     await mergeSortHelper(arr, left, mid);
     await mergeSortHelper(arr, mid + 1, right);
     await merge(arr, left, mid, right);
-  };
 
   const merge = async (arr, left, mid, right) => {
     const leftArr = arr.slice(left, mid + 1);
@@ -382,6 +381,7 @@ export const MergeVisualize = () => {
 
     setDescription(`Merged subarray from index ${left} to ${right}`);
     setSortedIndices(prev => [...new Set([...prev, ...Array.from({ length: right - left + 1 }, (_, i) => i + left)])]);
+  };
   };
 
   useEffect(() => {
