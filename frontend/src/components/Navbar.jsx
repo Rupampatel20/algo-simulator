@@ -65,7 +65,7 @@ const Navbar = () => {
             className="h-12 w-12 rounded-lg transform transition-all duration-300 hover:scale-110 hover:rotate-6 shadow-lg"
           />
           <h1 className="text-2xl font-bold text-gray-300 font-serif italic transition-all duration-300 hover:text-yellow-400 hover:scale-105 hover:tracking-widest">
-            SEARCHSORTPLAY
+          SearchSortPlay
           </h1>
         </a>
 
