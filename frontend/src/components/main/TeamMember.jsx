@@ -134,7 +134,7 @@ const members = [
 const guide = {
   name: 'Ms. Tarjani Sevak',
   role: 'Project Guide and Mentor',
-  note: 'Provided invaluable support and guidance throughout the project. Reviewed code, logic, and documentation, and ensured project milestones were met successfully.',
+  note: 'An inspiring mentor who not only guided us through every stage of the project but also played a key role in shaping our success. Her insightful feedback and unwavering support truly impressed us, pushing us to achieve our best and ensuring the project’s excellence from start to finish..',
   image: '/tarjani.png',
 };
 
